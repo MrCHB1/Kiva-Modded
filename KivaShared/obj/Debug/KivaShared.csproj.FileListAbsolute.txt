@@ -1,0 +1,16 @@
+D:\Programs\Kiva Modded\Kiva-1.1.15\KivaShared\bin\Debug\KivaShared.dll
+D:\Programs\Kiva Modded\Kiva-1.1.15\KivaShared\bin\Debug\KivaShared.pdb
+D:\Programs\Kiva Modded\Kiva-1.1.15\KivaShared\bin\Debug\Newtonsoft.Json.dll
+D:\Programs\Kiva Modded\Kiva-1.1.15\KivaShared\bin\Debug\Newtonsoft.Json.xml
+D:\Programs\Kiva Modded\Kiva-1.1.15\KivaShared\obj\Debug\Interop.IWshRuntimeLibrary.dll
+D:\Programs\Kiva Modded\Kiva-1.1.15\KivaShared\obj\Debug\KivaShared.csproj.ResolveComReference.cache
+D:\Programs\Kiva Modded\Kiva-1.1.15\KivaShared\obj\Debug\MessageBox.g.cs
+D:\Programs\Kiva Modded\Kiva-1.1.15\KivaShared\obj\Debug\KivaShared_MarkupCompile.cache
+D:\Programs\Kiva Modded\Kiva-1.1.15\KivaShared\obj\Debug\KivaShared_MarkupCompile.lref
+D:\Programs\Kiva Modded\Kiva-1.1.15\KivaShared\obj\Debug\ButtonTemplates.baml
+D:\Programs\Kiva Modded\Kiva-1.1.15\KivaShared\obj\Debug\MessageBox.baml
+D:\Programs\Kiva Modded\Kiva-1.1.15\KivaShared\obj\Debug\KivaShared.g.resources
+D:\Programs\Kiva Modded\Kiva-1.1.15\KivaShared\obj\Debug\KivaShared.csproj.CoreCompileInputs.cache
+D:\Programs\Kiva Modded\Kiva-1.1.15\KivaShared\obj\Debug\KivaShared.csproj.CopyComplete
+D:\Programs\Kiva Modded\Kiva-1.1.15\KivaShared\obj\Debug\KivaShared.dll
+D:\Programs\Kiva Modded\Kiva-1.1.15\KivaShared\obj\Debug\KivaShared.pdb
