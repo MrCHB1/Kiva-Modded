@@ -7,12 +7,9 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/arduano/Kiva/releases/"><img src="https://img.shields.io/github/release/arduano/Kiva.svg?style=flat-square" alt="GitHub release"></a>
-    <a href="https://github.com/arduano/Kiva/releases/"><img src="https://img.shields.io/github/downloads/arduano/Kiva/total.svg?style=flat-square" alt="GitHub release"></a>
-    <a href="https://github.com/arduano/Kiva/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-DBAD-blue.svg?style=flat-square" alt="DBAD license"></a>
-    <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome"></a>
-    <a href="https://discord.gg/Aj4cb5"><img src="https://img.shields.io/discord/549344616210628609.svg?style=flat-square" alt="Discord"></a>
-    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=M9XRCSPYSMBCA&source=url"><img src="https://img.shields.io/badge/Donate-PayPal-green.svg?style=flat-square" alt="Donate"></a>
+    <a href="https://github.com/arduano/Kiva/releases/"><img src="https://img.shields.io/github/release/MrCHB1/Kiva-Modded.svg?style=flat-square" alt="GitHub release"></a>
+    <a href="https://github.com/arduano/Kiva/releases/"><img src="https://img.shields.io/github/downloads/MrCHB1/Kiva-Modded/total.svg?style=flat-square" alt="GitHub release"></a>
+    <a href="https://github.com/MrCHB1/Kiva-Modded/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-DBAD-blue.svg?style=flat-square" alt="DBAD license"></a>
 </p>
 
 ## Features
