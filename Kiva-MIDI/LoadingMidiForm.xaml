@@ -1,0 +1,73 @@
+﻿<Window x:Class="Kiva_MIDI.LoadingMidiForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kiva_MIDI"
+        mc:Ignorable="d"
+        KeyDown="Window_KeyDown"
+        Title="LoadingMidiForm" WindowStyle="None" Height="353.5" Width="270.5" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ButtonTemplates.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="{Binding ActualHeight,ElementName=content}"/>
+    </WindowChrome.WindowChrome>
+    <Grid Name="content" Background="#0D47A1">
+        <Grid Name="loadProgessScreen"  Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="248*"/>
+                <RowDefinition Height="41*"/>
+                <RowDefinition Height="22*"/>
+                <RowDefinition Height="31*"/>
+            </Grid.RowDefinitions>
+            <Image Source="logo.png" x:Name="rotateLogo" Margin="20" RenderOptions.BitmapScalingMode="HighQuality" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <RotateTransform Angle="0"/>
+                </Image.RenderTransform>
+            </Image>
+            <TextBox Grid.Row="1" TextWrapping="Wrap" Name="loadingText" Background="Transparent" BorderThickness="0" TextAlignment="Center"
+                 FontSize="14" Foreground="White"/>
+            <TextBox Grid.Row="2" TextWrapping="Wrap" Name="memoryText" Background="Transparent" BorderThickness="0" TextAlignment="Center"
+                 FontSize="10" Foreground="White"/>
+            <Button Content="Cancel" Foreground="White" Name="cancelButton" WindowChrome.IsHitTestVisibleInChrome="True" Style="{StaticResource TransparentButtonStyle}" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="80" Height="26" PreviewMouseDown="CancelButton_Click" Margin="81,1,81,4"/>
+        </Grid>
+        <Border Name="loadSettingsScreen" Padding="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="99*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="5*"/>
+                </Grid.RowDefinitions>
+                <StackPanel WindowChrome.IsHitTestVisibleInChrome="True" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <Label FontSize="16" Foreground="White" HorizontalAlignment="Center" Margin="0,10,0,0">Visible Note Threshold</Label>
+                    <DockPanel HorizontalAlignment="Center">
+                        <local:NumberSelect x:Name="visibleThresh" ValueChanged="VisibleThresh_ValueChanged" Minimum="0" Maximum="127" Width="80" VerticalAlignment="Center" Margin="20,0,0,0"/>
+                        <local:InfoIcon Margin="5,0,0,0" Title="Visible Note Threshold" Text="Threshold of the visible notes. Change this from 0 if you want to see the melody without the note art."/>
+                    </DockPanel>
+                    <Label FontSize="16" Foreground="White" HorizontalAlignment="Center" Margin="0,10,0,0">Audio Note Threshold</Label>
+                    <DockPanel HorizontalAlignment="Center" Margin="20,0,0,0">
+                        <local:NumberSelect x:Name="audioThresh" ValueChanged="AudioThresh_ValueChanged" Minimum="0" Maximum="127" Width="80" VerticalAlignment="Center"/>
+                        <local:InfoIcon Margin="5,0,0,0" Title="Audio Note Threshold" Text="Prevent events with low velocity from being loaded into ram and being played. Faster load times, less lag. Values of around 10-20 recommended for massive midis."/>
+                    </DockPanel>
+                    <Label FontSize="16" Foreground="White" HorizontalAlignment="Center" Margin="0,10,0,0">Audio Player Threads</Label>
+                    <DockPanel HorizontalAlignment="Center" Margin="20,0,0,0">
+                        <local:NumberSelect Value="1" x:Name="audioThreads" ValueChanged="AudioThreads_ValueChanged" Minimum="1" Maximum="1" Width="80" VerticalAlignment="Center"/>
+                        <local:InfoIcon Margin="5,0,0,0" Title="Audio Player Threads" Text="Faster load times when merging events, faster performance when playing. Doesn't apply to Pre-Rendered audio mode."/>
+                    </DockPanel>
+                    <DockPanel HorizontalAlignment="Center" Margin="0,15,0,0">
+                        <local:BetterCheckbox x:Name="removeOverlaps" Text="Remove Overlaps" CheckToggled="removeOverlaps_CheckToggled"/>
+                        <local:InfoIcon Margin="5,0,0,2" Title="Remove Note Overlaps" Text="Performs an overlaps remover algorithm while merging notes. Will load less visible notes, but the audio event loading will stay the same." VerticalAlignment="Bottom"/>
+                    </DockPanel>
+                    <Button Content="Save As Defaults" Foreground="White" Name="saveDefaults" WindowChrome.IsHitTestVisibleInChrome="True" Style="{StaticResource TransparentButtonStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110" Height="26" Grid.Row="1" Margin="0,10,0,0" PreviewMouseDown="SaveDefaults_Click" />
+                </StackPanel>
+                <Button Content="Continue" Foreground="White" Name="continueButton" WindowChrome.IsHitTestVisibleInChrome="True" Style="{StaticResource TransparentButtonStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="26" Grid.Row="1" PreviewMouseDown="ContinueButton_Click" />
+                <Label Content="(or press any key)" HorizontalAlignment="Center" FontSize="9" Padding="0" Grid.Row="1" Foreground="White" VerticalAlignment="Center" Height="12" Margin="0,28,0,5" Width="70" Grid.RowSpan="2"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
