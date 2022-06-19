@@ -7,8 +7,8 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/arduano/Kiva/releases/"><img src="https://img.shields.io/github/release/MrCHB1/Kiva-Modded.svg?style=flat-square" alt="GitHub release"></a>
-    <a href="https://github.com/arduano/Kiva/releases/"><img src="https://img.shields.io/github/downloads/MrCHB1/Kiva-Modded/total.svg?style=flat-square" alt="GitHub release"></a>
+    <a href="https://github.com/MrCHB1/Kiva-Modded/releases/"><img src="https://img.shields.io/github/release/MrCHB1/Kiva-Modded.svg?style=flat-square" alt="GitHub release"></a>
+    <a href="https://github.com/MrCHB1/Kiva-Modded/releases/"><img src="https://img.shields.io/github/downloads/MrCHB1/Kiva-Modded/total.svg?style=flat-square" alt="GitHub release"></a>
     <a href="https://github.com/MrCHB1/Kiva-Modded/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-DBAD-blue.svg?style=flat-square" alt="DBAD license"></a>
 </p>
 
