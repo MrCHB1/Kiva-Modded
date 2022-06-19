@@ -43,4 +43,4 @@ Kiva Modded is licensed under the terms of the [Don't Be a Dick Public License](
 <img src="https://i.imgur.com/YD0wHE1.png" width="512" />
 <img src="https://i.imgur.com/48GfALp.png" width="512" />
 <img src="https://i.imgur.com/QpgjYcv.png" width="512" />
-<img src="https://i.imgur.com/FMLnFYX.jpg" width="512" />
+<img src="https://imgur.com/a/FMLnFYX" width="512" />
