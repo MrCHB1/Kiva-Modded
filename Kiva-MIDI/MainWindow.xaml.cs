@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -350,6 +350,8 @@ namespace Kiva_MIDI
             fakeFpsPanel.Visibility = (cp & CardParams.FakeFps) > 0 ? Visibility.Visible : Visibility.Collapsed;
             bufferLenPanel.Visibility = (cp & CardParams.AudioBuffer) > 0 ? Visibility.Visible : Visibility.Collapsed;
             bpmPanel.Visibility = (cp & CardParams.BPM) > 0 ? Visibility.Visible : Visibility.Collapsed;
+            maxNpsPanel.Visibility = (cp & CardParams.MaxNPS) > 0 ? Visibility.Visible : Visibility.Collapsed;
+            maxPolyphonyPanel.Visibility = (cp & CardParams.MaxPolyphony) > 0 ? Visibility.Visible : Visibility.Collapsed;
         }
 
         public MainWindow(Settings settings)
@@ -494,11 +496,13 @@ namespace Kiva_MIDI
                 fakeFpsLabel.Text = d3d.FakeFPS.ToString("#,##0.0");
                 ncLabel.Text = (loadedFle != null ? loadedFle.MidiNoteCount : 0).ToString("#,##0");
                 npLabel.Text = scene.NotesPassedSum.ToString("#,##0");
+                maxNpsLabelLabel.Text = scene.MaxNPS.ToString("#,##0");
                 bufferLenLabel.Text = (selectedAudioEngine == AudioEngine.PreRender ? timeSpanString(TimeSpan.FromSeconds(preRenderPlayer.BufferSeconds)) : "N/A");
                 renderedNotesLabel.Text = scene.LastRenderedNoteCount.ToString("#,##0");
                 npsLabelLabel.Text = scene.LastNPS.ToString("#,##0");
                 polyphonyLabel.Text = scene.LastPolyphony.ToString("#,##0");
                 bpmLabel.Text = scene.BPM.ToString("#,##0.0");
+                maxPolyphonyLabel.Text = scene.MaxPolyphony.ToString("#,##0");
 
                 if(Time.GetTime() > midiLen && !Time.Paused && loadedFle != null)
                 {
