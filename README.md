@@ -22,8 +22,9 @@
 
 ## Modded Features
 - Customizable Accent Color
-- (Soon) BPM info
-- (Soon) Customizable Text Color/Font
+- BPM info
+- Customizable Text Color
+   - Font soon
 - (Soon) PFA theme
 
 ## Installation
