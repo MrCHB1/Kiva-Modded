@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -41,6 +41,7 @@ namespace Kiva_MIDI
             public float Right;
             public float Aspect;
             public uint BarColor;
+            public uint BarColor2;
             public int ScreenWidth;
             public int ScreenHeight;
         }
@@ -105,6 +106,8 @@ namespace Kiva_MIDI
         }
         public long LastRenderedNoteCount { get; private set; } = 0;
         public long LastNPS => notesPassedPerFrame.Sum();
+        public long MaxNPS { get; private set; } = 0;
+        public long MaxPolyphony { get; private set; } = 0;
         public long BPM { get; private set; } = 0;
         public long LastPolyphony { get; private set; } = 0;
         public long NotesPassedSum { get; private set; } = 0;
@@ -413,6 +416,7 @@ namespace Kiva_MIDI
 
         public void Render(Device device, RenderTargetView target, DrawEventArgs args)
         {
+
             var context = device.ImmediateContext;
             context.InputAssembler.InputLayout = noteLayout;
 
@@ -500,6 +504,7 @@ namespace Kiva_MIDI
                         long notesRendered = 0;
                         int polyphonySum = 0;
                         int notesHitSum = 0;
+                        int notesPassedPerFrameSum = 0;
                         int bpm = 0;
 
                         int firstRenderKey = 256;
@@ -636,9 +641,17 @@ namespace Kiva_MIDI
                             if (!resetNps) resetNps = true;
                             else resetNps = false;
                         }
+                        if (timeChanged)
+                        {
+                            this.MaxNPS = 0;
+                            this.MaxPolyphony = 0;
+                        }
                         LastRenderedNoteCount = notesRendered;
                         LastPolyphony = polyphonySum;
                         NotesPassedSum = file.FirstUnhitNote.Select(s => s).Sum();
+                        notesPassedPerFrameSum = notesPassedPerFrame.Sum();
+                        if (notesPassedPerFrameSum > this.MaxNPS) this.MaxNPS = notesPassedPerFrameSum;
+                        if (polyphonySum > this.MaxPolyphony) this.MaxPolyphony = polyphonySum;
                         file.lastRenderTime = time;
                     }
                 }
@@ -649,6 +662,8 @@ namespace Kiva_MIDI
                         notesPassedPerFrame.Unlink();
                         notesPassedTimes.Unlink();
                     }
+                    this.MaxNPS = 0;
+                    this.MaxPolyphony = 0;
                     LastRenderedNoteCount = 0;
                     LastPolyphony = 0;
                     NotesPassedSum = 0;
@@ -665,6 +680,7 @@ namespace Kiva_MIDI
             {
                 DataStream data;
                 var col = settings.General.BarColor;
+                var col2 = settings.General.BarColor2;
                 SetKeyboardShaderConstants(context, new KeyboardGlobalConstants()
                 {
                     Height = kbHeight,
@@ -672,9 +688,10 @@ namespace Kiva_MIDI
                     Right = (float)fullRight,
                     Aspect = noteConstants.ScreenAspect,
                     BarColor = NoteCol.Compress(col.R, col.G, col.B, col.A),
+                    BarColor2 = NoteCol.Compress(col2.R, col2.G, col2.B, col2.A),
                     ScreenWidth = (int)args.RenderSize.Width,
                     ScreenHeight = (int)args.RenderSize.Height
-                });
+                });;
                 context.InputAssembler.InputLayout = keyLayout;
                 context.InputAssembler.PrimitiveTopology = PrimitiveTopology.PointList;
                 context.InputAssembler.SetVertexBuffers(0, new VertexBufferBinding(keyBuffer, 24, 0));
