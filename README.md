@@ -14,7 +14,7 @@
 
 ## Features
 - Extremely fast multithreaded rendering, best optimized for medium to high end systems.
-- Support for switching between KDMAPI and WinMM in the settings. do not kdmapi patch kiva.
+- Support for switching between KDMAPI and WinMM in the settings. Do *not* KDMAPI-patch Kiva Modded.
 - Support for Zenith color palettes and midi color events
 - Epic transparent or semi transparent background if you want
 - 256 key support, as well as dynamic key range option (animating between 88 and 128 keys depending on the notes on screen)
@@ -24,6 +24,7 @@
 - Customizable Accent Color
 - (Soon) BPM info
 - (Soon) Customizable Text Color/Font
+- (Soon) PFA theme
 
 ## Installation
 You can download the latest version of Kiva for Windows 64-bit by downloading through the releases. The .exe file should be contained within the .zip file.
