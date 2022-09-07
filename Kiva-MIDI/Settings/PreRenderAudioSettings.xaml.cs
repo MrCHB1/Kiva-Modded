@@ -63,6 +63,7 @@ namespace Kiva_MIDI
             voices.Value = settings.General.RenderVoices;
             disableFx.IsChecked = settings.General.RenderNoFx;
             simulatedLag.Value = (decimal)(settings.General.RenderSimulateLag * 1000);
+            realtimeFPS.Value = settings.General.RenderRealtimeFPS;
             SetSizeLabel();
 
             SetSfs();
@@ -282,6 +283,11 @@ namespace Kiva_MIDI
         private void simulatedLag_ValueChanged(object sender, RoutedPropertyChangedEventArgs<decimal> e)
         {
             settings.General.RenderSimulateLag = (double)simulatedLag.Value / 1000.0;
+        }
+
+        private void realtimeFPS_ValueChanged(object sender, RoutedPropertyChangedEventArgs<decimal> e)
+        {
+            settings.General.RenderRealtimeFPS = (int)realtimeFPS.Value;
         }
     }
 }

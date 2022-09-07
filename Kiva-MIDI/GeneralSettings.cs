@@ -82,6 +82,7 @@ namespace Kiva_MIDI
         public int RenderVoices { get; set; } = 1000;
         public bool RenderNoFx { get; set; } = false;
         public double RenderSimulateLag { get; set; } = 0;
+        public int RenderRealtimeFPS { get; set; } = 60;
 
         public bool DiscordRP { get; set; } = false;
 

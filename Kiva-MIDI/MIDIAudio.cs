@@ -95,6 +95,7 @@ namespace Kiva_MIDI
         public int defaultVoices = 1000;
         public bool defaultNoFx = false;
         public double simulatedLagScale = 0.01;
+        public int realtimeFPS = 60;
 
         bool awaitingReset = false;
 
@@ -196,7 +197,7 @@ namespace Kiva_MIDI
                     if (evTime < prevTime) evTime = prevTime;
                     if (timeDist < simulatedLagScale)
                     {
-                        evTime = Math.Floor(evTime*60)/60;
+                        evTime = Math.Floor(evTime * realtimeFPS) / realtimeFPS;
                         if (evTime - e.time >= simulatedLagScale)
                         { }
                     }
