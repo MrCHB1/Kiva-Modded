@@ -31,6 +31,7 @@ namespace Kiva_MIDI
             public float KeyboardHeight;
             public int ScreenWidth;
             public int ScreenHeight;
+            public int Pseudo3d;
         }
 
         [StructLayout(LayoutKind.Sequential, Pack = 16)]
@@ -41,6 +42,7 @@ namespace Kiva_MIDI
             public float Right;
             public float Aspect;
             public uint BarColor;
+            public uint BarColor2;
             public int ScreenWidth;
             public int ScreenHeight;
         }
@@ -105,6 +107,9 @@ namespace Kiva_MIDI
         }
         public long LastRenderedNoteCount { get; private set; } = 0;
         public long LastNPS => notesPassedPerFrame.Sum();
+        public long MaxNPS { get; private set; } = 0;
+        public long MaxPolyphony { get; private set; } = 0;
+        public long BPM { get; private set; } = 0;
         public long LastPolyphony { get; private set; } = 0;
         public long NotesPassedSum { get; private set; } = 0;
 
@@ -412,6 +417,7 @@ namespace Kiva_MIDI
 
         public void Render(Device device, RenderTargetView target, DrawEventArgs args)
         {
+
             var context = device.ImmediateContext;
             context.InputAssembler.InputLayout = noteLayout;
 
@@ -484,6 +490,8 @@ namespace Kiva_MIDI
             if (settings.General.KeyboardStyle == KeyboardStyle.None) kbHeight = 0;
             noteConstants.KeyboardHeight = kbHeight;
 
+            noteConstants.Pseudo3d = settings.General.Pseudo3d ? 1 : 0;
+
             lock (fileLock)
             {
                 if (File != null)
@@ -499,6 +507,11 @@ namespace Kiva_MIDI
                         long notesRendered = 0;
                         int polyphonySum = 0;
                         int notesHitSum = 0;
+                        int notesPassedPerFrameSum = 0;
+
+                        int tId = 0;
+
+                        int bpm = 0;
 
                         int firstRenderKey = 256;
                         int lastRenderKey = -1;
@@ -516,15 +529,20 @@ namespace Kiva_MIDI
                                 float right = (float)((x1array[k] + wdtharray[k] - fullLeft) / fullWidth);
                                 bool pressed = false;
                                 NoteCol col = new NoteCol();
+                                NoteCol kcol = new NoteCol();
                                 int lastHitNote = file.FirstUnhitNote[k] - 1;
                                 unsafe
                                 {
-                                    RenderNote* rn = stackalloc RenderNote[noteBufferLength];
-                                    int nid = 0;
-                                    int noff = file.FirstRenderNote[k];
                                     int polyphony = 0;
                                     Note[] notes = file.Notes[k];
                                     if (notes.Length == 0) goto skipLoop;
+                                    RenderNote* rn = stackalloc RenderNote[noteBufferLength];
+                                    int nid = 0;
+                                    int noff = file.FirstRenderNote[k];
+                                    //if (tempos[tId].time/2033 < time)
+                                    //{
+                                    //    bpm = 60000000/tempos[tId++].tempo;
+                                    //}
                                     if (lastTime > time)
                                     {
                                         for (noff = 0; noff < notes.Length; noff++)
@@ -534,6 +552,7 @@ namespace Kiva_MIDI
                                                 break;
                                             }
                                         }
+                                        //for (noff = 0; noff < notes.Length && notes[noff].end <= time; noff++) { /* Nothing???? */ }
                                         file.FirstRenderNote[k] = noff;
                                     }
                                     else if (lastTime < time)
@@ -545,6 +564,7 @@ namespace Kiva_MIDI
                                                 break;
                                             }
                                         }
+                                        //for (; noff < notes.Length && notes[noff].end <= time; noff++) { /* Nothing???? */ }
                                         file.FirstRenderNote[k] = noff;
                                     }
                                     while (noff != notes.Length && notes[noff].start < renderCutoff)
@@ -559,7 +579,8 @@ namespace Kiva_MIDI
                                         {
                                             polyphony++;
                                             pressed = true;
-                                            NoteCol kcol = file.MidiNoteColors[n.colorPointer];
+                                            //NoteCol kcol = file.MidiNoteColors[n.colorPointer];
+                                            kcol = file.MidiNoteColors[n.colorPointer];
                                             col.rgba = NoteCol.Blend(col.rgba, kcol.rgba);
                                             col.rgba2 = NoteCol.Blend(col.rgba2, kcol.rgba2);
                                             lastHitNote = noff - 1;
@@ -589,6 +610,7 @@ namespace Kiva_MIDI
                                     lock (addLock)
                                     {
                                         polyphonySum += polyphony;
+                                        if (polyphonySum > this.MaxPolyphony) this.MaxPolyphony = polyphonySum;
                                         notesHitSum += lastHitNote - file.FirstUnhitNote[k] + 1;
                                         notesRendered += _notesRendered;
                                         if (_notesRendered > 0)
@@ -634,9 +656,17 @@ namespace Kiva_MIDI
                             if (!resetNps) resetNps = true;
                             else resetNps = false;
                         }
+                        if (timeChanged)
+                        {
+                            this.MaxNPS = 0;
+                            this.MaxPolyphony = 0;
+                        }
                         LastRenderedNoteCount = notesRendered;
                         LastPolyphony = polyphonySum;
                         NotesPassedSum = file.FirstUnhitNote.Select(s => s).Sum();
+                        notesPassedPerFrameSum = notesPassedPerFrame.Sum();
+                        if (notesPassedPerFrameSum > this.MaxNPS) this.MaxNPS = notesPassedPerFrameSum;
+                        this.BPM = bpm;
                         file.lastRenderTime = time;
                     }
                 }
@@ -647,6 +677,8 @@ namespace Kiva_MIDI
                         notesPassedPerFrame.Unlink();
                         notesPassedTimes.Unlink();
                     }
+                    this.MaxNPS = 0;
+                    this.MaxPolyphony = 0;
                     LastRenderedNoteCount = 0;
                     LastPolyphony = 0;
                     NotesPassedSum = 0;
@@ -663,6 +695,7 @@ namespace Kiva_MIDI
             {
                 DataStream data;
                 var col = settings.General.BarColor;
+                var col2 = settings.General.BarColor2;
                 SetKeyboardShaderConstants(context, new KeyboardGlobalConstants()
                 {
                     Height = kbHeight,
@@ -670,9 +703,10 @@ namespace Kiva_MIDI
                     Right = (float)fullRight,
                     Aspect = noteConstants.ScreenAspect,
                     BarColor = NoteCol.Compress(col.R, col.G, col.B, col.A),
+                    BarColor2 = NoteCol.Compress(col2.R, col2.G, col2.B, col2.A),
                     ScreenWidth = (int)args.RenderSize.Width,
                     ScreenHeight = (int)args.RenderSize.Height
-                });
+                }); ;
                 context.InputAssembler.InputLayout = keyLayout;
                 context.InputAssembler.PrimitiveTopology = PrimitiveTopology.PointList;
                 context.InputAssembler.SetVertexBuffers(0, new VertexBufferBinding(keyBuffer, 24, 0));

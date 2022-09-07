@@ -28,7 +28,7 @@
     </WindowChrome.WindowChrome>
     <Grid>
         <DockPanel LastChildFill="True">
-            <Border Visibility="{Binding ChromeVisibility, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Background="#0068c9" DockPanel.Dock="Top" Height="69" x:Name="titlebar">
+            <Border Visibility="{Binding ChromeVisibility, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Background="#00FFCF" DockPanel.Dock="Top" Height="69" x:Name="titlebar">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -52,12 +52,12 @@
                         <Button Name="settingsButton" PreviewMouseDown="SettingsButton_PreviewMouseDown" WindowChrome.IsHitTestVisibleInChrome="True" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Style="{StaticResource TransparentButtonStyle}" Padding="0" Margin="0,0,0,0">
                             <Image HorizontalAlignment="Center" RenderOptions.BitmapScalingMode="HighQuality" Height="Auto" Margin="8" Source="Material.WPF/settings.png"/>
                         </Button>
-                        <DockPanel Margin="5,0" WindowChrome.IsHitTestVisibleInChrome="True">
+                        <DockPanel Margin="5,0" WindowChrome.IsHitTestVisibleInChrome="True" x:Name="speedPanel">
                             <Label FontSize="16" VerticalAlignment="Center" Padding="5,0,5,3" Margin="0,0,5,0">Speed:</Label>
                             <local:ValueSlider ValueChanged="SpeedSlider_ValueChanged" x:Name="speedSlider" Width="220" Minimum="-3" Maximum="3" TrueMin="0.01" TrueMax="100" DecimalPoints="2" VerticalAlignment="Center" WindowChrome.IsHitTestVisibleInChrome="True"/>
                         </DockPanel>
                         <local:InfoIcon Title="Speed" Text="The relative time scale. Higher values mean faster playback."/>
-                        <DockPanel Margin="5,0" WindowChrome.IsHitTestVisibleInChrome="True">
+                        <DockPanel Margin="5,0" WindowChrome.IsHitTestVisibleInChrome="True" x:Name="sizePanel">
                             <Label FontSize="16" VerticalAlignment="Center" Padding="5,0,5,3" Margin="0,0,5,0">Size:</Label>
                             <local:ValueSlider ValueChanged="SizeSlider_ValueChanged" x:Name="sizeSlider" Width="220" Minimum="-4" Maximum="3" TrueMin="0.01" TrueMax="1000" DecimalPoints="2" VerticalAlignment="Center" WindowChrome.IsHitTestVisibleInChrome="True"/>
                         </DockPanel>
@@ -92,7 +92,7 @@
                             </Image>
                             <Image Source="kiva.png" RenderOptions.BitmapScalingMode="HighQuality" Width="70" Height="30" Margin="3"/>
                             <Label Name="versionLabel" Foreground="White" VerticalAlignment="Bottom" FontSize="16" Padding="2" Margin="0,0,5,0">
-                                v1.0
+                                v1.1.16m
                             </Label>
                         </DockPanel>
                         <Border Padding="5">
@@ -122,9 +122,21 @@
                                     <TextBlock Margin="0,0,4,0">NPS:</TextBlock>
                                     <TextBlock Name="npsLabelLabel" DockPanel.Dock="Right" HorizontalAlignment="Right"></TextBlock>
                                 </DockPanel>
+                                <DockPanel Name="maxNpsPanel">
+                                    <TextBlock Margin="0,0,4,0">Max NPS:</TextBlock>
+                                    <TextBlock Name="maxNpsLabelLabel" DockPanel.Dock="Right" HorizontalAlignment="Right"></TextBlock>
+                                </DockPanel>
                                 <DockPanel Name="polyphonyPanel">
                                     <TextBlock Margin="0,0,4,0">Polyphony:</TextBlock>
                                     <TextBlock Name="polyphonyLabel" DockPanel.Dock="Right" HorizontalAlignment="Right"></TextBlock>
+                                </DockPanel>
+                                <DockPanel Name="maxPolyphonyPanel">
+                                    <TextBlock Margin="0,0,4,0">Max Polyphony:</TextBlock>
+                                    <TextBlock Name="maxPolyphonyLabel" DockPanel.Dock="Right" HorizontalAlignment="Right"></TextBlock>
+                                </DockPanel>
+                                <DockPanel Name="bpmPanel">
+                                    <TextBlock Margin="0,0,4,0">BPM:</TextBlock>
+                                    <TextBlock Name="bpmLabel" DockPanel.Dock="Right" HorizontalAlignment="Right"></TextBlock>
                                 </DockPanel>
                                 <StackPanel Name="ncPanel">
                                     <DockPanel>

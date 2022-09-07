@@ -39,7 +39,12 @@ namespace Kiva_MIDI
         void SetValues()
         {
             backgroundColor.Color = settings.General.BackgroundColor;
+            isBarGradient.IsChecked = settings.General.useBarGradients;
             barColor.Color = settings.General.BarColor;
+            barColor2.Color = settings.General.BarColor2;
+            barColor2.Visibility = isBarGradient.IsChecked ? Visibility.Visible : Visibility.Collapsed;
+            accentColor.Color = settings.General.AccentColor;
+            textColor.Color = settings.General.TextColor;
             hideInfoCard.IsChecked = settings.General.HideInfoCard;
             windowTopmost.IsChecked = settings.General.MainWindowTopmost;
             discordRP.IsChecked = settings.General.DiscordRP;
@@ -50,10 +55,13 @@ namespace Kiva_MIDI
             renderedNotesLabel.IsChecked = (cp & CardParams.RenderedNotes) > 0;
             polyphonyLabel.IsChecked = (cp & CardParams.Polyphony) > 0;
             npsLabel.IsChecked = (cp & CardParams.NPS) > 0;
+            bpmLabel.IsChecked = (cp & CardParams.BPM) > 0;
             ncLabel.IsChecked = (cp & CardParams.NoteCount) > 0;
             fpsLabel.IsChecked = (cp & CardParams.FPS) > 0;
             estimatedFpsLabel.IsChecked = (cp & CardParams.FakeFps) > 0;
             bufferLengthLabel.IsChecked = (cp & CardParams.AudioBuffer) > 0;
+            maxNpsLabel.IsChecked = (cp & CardParams.MaxNPS) > 0;
+            maxPolyphonyLabel.IsChecked = (cp & CardParams.MaxPolyphony) > 0;
         }
 
         private void BackgroundColor_ValueChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
@@ -65,7 +73,47 @@ namespace Kiva_MIDI
         private void BarColor_ValueChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
         {
             if (IsInitialized)
+            {
                 settings.General.BarColor = barColor.Color;
+                if (!isBarGradient.IsChecked) settings.General.BarColor2 = barColor.Color;
+            }
+        }
+
+        private void BarColor2_ValueChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
+        {
+            if (IsInitialized)
+            {
+                settings.General.BarColor2 = barColor2.Color;
+            }
+        }
+
+        private void BarGradient_ValueChanged(object sender, RoutedPropertyChangedEventArgs<bool> e)
+        {
+            if (IsInitialized)
+            {
+                settings.General.useBarGradients = isBarGradient.IsChecked;
+                barColor2.Visibility = isBarGradient.IsChecked ? Visibility.Visible : Visibility.Collapsed;
+                if (!isBarGradient.IsChecked)
+                    barColor2.Color = settings.General.BarColor;
+                else
+                    barColor2.Color = settings.General.BarColor2;
+            }
+        }
+
+        private void AccentColor_ValueChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
+        {
+            if (IsInitialized)
+            {
+                settings.General.AccentColor = accentColor.Color;
+            }
+        }
+
+        private void TextColor_ValueChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
+        {
+            if (IsInitialized)
+            {
+                settings.General.TextColor = textColor.Color;
+            }
         }
 
         private void hideInfoCard_CheckToggled(object sender, RoutedPropertyChangedEventArgs<bool> e)
@@ -90,6 +138,9 @@ namespace Kiva_MIDI
             if (fpsLabel.IsChecked) cp |= CardParams.FPS;
             if (estimatedFpsLabel.IsChecked) cp |= CardParams.FakeFps;
             if (bufferLengthLabel.IsChecked) cp |= CardParams.AudioBuffer;
+            if (bpmLabel.IsChecked) cp |= CardParams.BPM;
+            if (maxNpsLabel.IsChecked) cp |= CardParams.MaxNPS;
+            if (maxPolyphonyLabel.IsChecked) cp |= CardParams.MaxPolyphony;
 
             settings.General.InfoCardParams = cp;
         }

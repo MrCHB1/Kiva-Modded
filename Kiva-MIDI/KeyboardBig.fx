@@ -4,6 +4,7 @@ float Left;
 float Right;
 float Aspect;
 dword BarColor;
+dword BarColor2;
 int ScreenWidth;
 int ScreenHeight;
 
@@ -88,12 +89,16 @@ void GS_Bar(point KEY input[1], inout TriangleStream<PS_IN> OutputStream)
 	QUAD q = (QUAD)0;
 
 	float4 color = float4((float)(BarColor >> 24 & 0xff) / 255.0, (float)(BarColor >> 16 & 0xff) / 255.0, (float)(BarColor >> 8 & 0xff) / 255.0, (float)(BarColor & 0xff) / 255.0);
+	float4 color2 = float4((float)(BarColor2 >> 24 & 0xff) / 255.0, (float)(BarColor2 >> 16 & 0xff) / 255.0, (float)(BarColor2 >> 8 & 0xff) / 255.0, (float)(BarColor2 & 0xff) / 255.0);
 
 	q.c1 = color;
-	q.c2 = color;
+	q.c2 = color2;
 	color.xyz *= 0.8;
-	q.c3 = color;
+	color2.xyz *= 0.8;
+	q.c3 = color2;
 	q.c4 = color;
+	q.c3.xyz *= 0.8;
+	q.c4.xyz *= 0.8;
 	q.v1 = float2(0, Height);
 	q.v2 = float2(1, Height);
 	q.v3 = float2(1, Height * 0.94);
@@ -158,6 +163,7 @@ void GS_White(point KEY input[1], inout TriangleStream<PS_IN> OutputStream)
 	coll2.xyz *= 0.8;
 	q.c1 = coll2;
 	q.c2 = coll2;
+	if (pressed) { q.c1.xyz *= 0.5; q.c2.xyz *= 0.5; }
 	q.c3 = colr;
 	q.c4 = colr;
 	q.v1 = float2(left, top);
@@ -226,10 +232,11 @@ void GS_Black(point KEY input[1], inout TriangleStream<PS_IN> OutputStream)
 	float4 colr = colorr;
 
 	//Center
-	q.c1 = coll;
-	q.c2 = coll;
+	q.c1 = coll + 0.25;
+	q.c2 = coll + 0.25;
 	q.c3 = colr;
 	q.c4 = colr;
+	if (pressed) { q.c3.xyz *= 0.75; q.c4.xyz *= 0.75; }
 	q.v1 = float2(ileft, itop);
 	q.v2 = float2(iright, itop);
 	q.v3 = float2(iright, ibottom);
@@ -244,6 +251,7 @@ void GS_Black(point KEY input[1], inout TriangleStream<PS_IN> OutputStream)
 	q.c2 = coll;
 	q.c3 = colr;
 	q.c4 = colr;
+	if (pressed) { q.c3.xyz *= 0.75; q.c4.xyz *= 0.75; }
 	q.v1 = float2(left, top);
 	q.v2 = float2(ileft, itop);
 	q.v3 = float2(ileft, ibottom);
@@ -258,6 +266,7 @@ void GS_Black(point KEY input[1], inout TriangleStream<PS_IN> OutputStream)
 	q.c2 = colr;
 	q.c3 = colr;
 	q.c4 = coll;
+	if (pressed) { q.c2.xyz *= 0.75; q.c3.xyz *= 0.75; }
 	q.v1 = float2(right, top);
 	q.v2 = float2(right, bottom);
 	q.v3 = float2(iright, ibottom);
@@ -272,6 +281,7 @@ void GS_Black(point KEY input[1], inout TriangleStream<PS_IN> OutputStream)
 	q.c2 = colr;
 	q.c3 = colr;
 	q.c4 = colr;
+	if (pressed) { q.c1.xyz *= 0.75; q.c2.xyz *= 0.75; q.c3.xyz *= 0.75; q.c4.xyz *= 0.75; }
 	q.v1 = float2(ileft, ibottom);
 	q.v2 = float2(iright, ibottom);
 	q.v3 = float2(right, bottom);

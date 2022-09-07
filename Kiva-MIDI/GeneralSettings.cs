@@ -41,7 +41,10 @@ namespace Kiva_MIDI
         Time = 16,
         RenderedNotes = 32,
         AudioBuffer = 64,
-        FakeFps = 128
+        FakeFps = 128,
+        BPM = 256,
+        MaxNPS = 512,
+        MaxPolyphony = 1024
     }
 
     public class GeneralSettings : INotifyPropertyChanged
@@ -49,6 +52,7 @@ namespace Kiva_MIDI
         public KeyRangeTypes KeyRange { get; set; } = KeyRangeTypes.KeyDynamic;
         public int CustomFirstKey { get; set; } = 0;
         public int CustomLastKey { get; set; } = 127;
+        public bool Pseudo3d { get; set; } = false;
 
         public KeyboardStyle KeyboardStyle { get; set; } = KeyboardStyle.Big;
 
@@ -56,9 +60,13 @@ namespace Kiva_MIDI
         public bool CompatibilityFPS { get; set; } = false;
         public bool SyncFPS { get; set; } = true;
 
-        public Color BackgroundColor { get; set; } = Color.FromArgb(255, 142, 142, 142);
-        public Color ForegroundColor { get; set; } = Color.FromArgb(255, 142, 142, 142);
-        public Color BarColor { get; set; } = Color.FromArgb(255, 0x00, 0x68, 0xC9);
+        public Color BackgroundColor { get; set; } = Color.FromArgb(255, 0, 0, 0); // Original: 142, 142, 142
+        public Color ForegroundColor { get; set; } = Color.FromArgb(255, 0, 0, 0);
+        public bool useBarGradients { get; set; } = true;
+        public Color BarColor { get; set; } = Color.FromArgb(255, 0x00, 0xAA, 0xFF); // Original: 0x0068C9
+        public Color BarColor2 { get; set; } = Color.FromArgb(255, 0x00, 0x55, 0x80);
+        public Color AccentColor { get; set; } = Color.FromArgb(255, 0x00, 0xAA, 0xFF);
+        public Color TextColor { get; set; } = Color.FromArgb(255, 0, 0, 0);
 
         public string PaletteName { get; set; } = "Random.png";
         public bool PaletteRandomized { get; set; } = true;

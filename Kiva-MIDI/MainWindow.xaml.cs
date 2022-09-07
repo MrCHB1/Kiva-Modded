@@ -223,7 +223,7 @@ namespace Kiva_MIDI
             {
                 if (settings.General.DiscordRP && rpclient == null)
                 {
-                    rpclient = new DiscordRpcClient("652205384521482259");
+                    rpclient = new DiscordRpcClient("1007345665535393812");
                     rpclient.Initialize();
                 }
 
@@ -240,7 +240,7 @@ namespace Kiva_MIDI
                         Assets = new Assets()
                         {
                             LargeImageKey = "kiva_logo",
-                            LargeImageText = "Kiva"
+                            LargeImageText = "Kiva Modded"
                         }
                     };
 
@@ -349,6 +349,9 @@ namespace Kiva_MIDI
             fpsPanel.Visibility = (cp & CardParams.FPS) > 0 ? Visibility.Visible : Visibility.Collapsed;
             fakeFpsPanel.Visibility = (cp & CardParams.FakeFps) > 0 ? Visibility.Visible : Visibility.Collapsed;
             bufferLenPanel.Visibility = (cp & CardParams.AudioBuffer) > 0 ? Visibility.Visible : Visibility.Collapsed;
+            bpmPanel.Visibility = (cp & CardParams.BPM) > 0 ? Visibility.Visible : Visibility.Collapsed;
+            maxNpsPanel.Visibility = (cp & CardParams.MaxNPS) > 0 ? Visibility.Visible : Visibility.Collapsed;
+            maxPolyphonyPanel.Visibility = (cp & CardParams.MaxPolyphony) > 0 ? Visibility.Visible : Visibility.Collapsed;
         }
 
         public MainWindow(Settings settings)
@@ -448,6 +451,16 @@ namespace Kiva_MIDI
                             SetDiscordRP(RPCStatus.Playing, loadedFle == null ? null : loadedFle.filepath);
                     }
                 }
+                if (e.PropertyName == "accentColor")
+                {
+                    this.titlebar.Background = new SolidColorBrush(settings.General.AccentColor);
+                }
+                if (e.PropertyName == "textColor")
+                {
+                    this.Foreground = new SolidColorBrush(settings.General.TextColor);
+                    ((Label)speedPanel.Children[0]).Foreground = new SolidColorBrush(settings.General.TextColor);
+                    ((Label)sizePanel.Children[0]).Foreground = new SolidColorBrush(settings.General.TextColor);
+                }
                 if (loadedFle != null)
                 {
                     if (e.PropertyName == "PaletteName" || e.PropertyName == "PaletteRandomized")
@@ -459,6 +472,11 @@ namespace Kiva_MIDI
             d3d.SingleThreadedRender = settings.General.CompatibilityFPS;
             d3d.SyncRender = settings.General.SyncFPS;
             glContainer.Background = new SolidColorBrush(settings.General.BackgroundColor);
+            this.titlebar.Background = new SolidColorBrush(settings.General.AccentColor);
+            this.Foreground = new SolidColorBrush(settings.General.TextColor);
+            ((Label)speedPanel.Children[0]).Foreground = new SolidColorBrush(settings.General.TextColor);
+            ((Label)sizePanel.Children[0]).Foreground = new SolidColorBrush(settings.General.TextColor);
+            speedSlider.Foreground = new SolidColorBrush(settings.General.TextColor);
             infoCard.Visibility = settings.General.HideInfoCard ? Visibility.Hidden : Visibility.Visible;
             Topmost = settings.General.MainWindowTopmost;
             SetInfoPanelVisibility();
@@ -488,12 +506,15 @@ namespace Kiva_MIDI
                 fakeFpsLabel.Text = d3d.FakeFPS.ToString("#,##0.0");
                 ncLabel.Text = (loadedFle != null ? loadedFle.MidiNoteCount : 0).ToString("#,##0");
                 npLabel.Text = scene.NotesPassedSum.ToString("#,##0");
+                maxNpsLabelLabel.Text = scene.MaxNPS.ToString("#,##0");
                 bufferLenLabel.Text = (selectedAudioEngine == AudioEngine.PreRender ? timeSpanString(TimeSpan.FromSeconds(preRenderPlayer.BufferSeconds)) : "N/A");
                 renderedNotesLabel.Text = scene.LastRenderedNoteCount.ToString("#,##0");
                 npsLabelLabel.Text = scene.LastNPS.ToString("#,##0");
                 polyphonyLabel.Text = scene.LastPolyphony.ToString("#,##0");
+                bpmLabel.Text = scene.BPM.ToString("#,##0.0");
+                maxPolyphonyLabel.Text = scene.MaxPolyphony.ToString("#,##0");
 
-                if(Time.GetTime() > midiLen && !Time.Paused && loadedFle != null)
+                if (Time.GetTime() > midiLen && !Time.Paused && loadedFle != null)
                 {
                     if (rpStatus != RPCStatus.Ended) SetDiscordRP(RPCStatus.Ended, loadedFle.filepath);
                 }

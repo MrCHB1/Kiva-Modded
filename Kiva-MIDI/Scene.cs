@@ -56,6 +56,21 @@ namespace Kiva_MIDI
             get => render.NotesPassedSum;
         }
 
+        public long BPM
+        {
+            get => render.BPM;
+        }
+
+        public long MaxNPS
+        {
+            get => render.MaxNPS;
+        }
+
+        public long MaxPolyphony
+        {
+            get => render.MaxPolyphony;
+        }
+
         public virtual D3D11 Renderer
         {
             get { return context; }

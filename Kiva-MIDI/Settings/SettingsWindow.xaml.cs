@@ -161,6 +161,10 @@ namespace Kiva_MIDI
             ((Button)tabPanel.Children[0]).Background = selectBrush;
             content.Children[0].Visibility = Visibility.Visible;
 
+            this.titlebar.Background = new SolidColorBrush(settings.General.AccentColor);
+            this.content.Background = new SolidColorBrush(settings.General.AccentColor);
+            this.Foreground = new SolidColorBrush(settings.General.TextColor);
+
             foreach (var _t in tabPanel.Children)
             {
                 var t = (Button)_t;

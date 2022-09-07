@@ -44,6 +44,7 @@ namespace Kiva_MIDI
             threadCount.Value = settings.General.MaxRenderThreads;
             forceSingleThread.IsChecked = !settings.General.MultiThreadedRendering;
             disableTransparency.IsChecked = settings.General.DisableTransparency;
+            pseudo3d.IsChecked = settings.General.Pseudo3d;
             valuesSet = true;
         }
 
@@ -63,6 +64,12 @@ namespace Kiva_MIDI
         {
             if (!valuesSet) return;
             settings.General.MaxRenderThreads = (int)threadCount.Value;
+        }
+
+        private void pseudo3d_CheckToggled(object sender, RoutedPropertyChangedEventArgs<bool> e)
+        {
+            if (!valuesSet) return;
+            settings.General.Pseudo3d = pseudo3d.IsChecked;
         }
     }
 }

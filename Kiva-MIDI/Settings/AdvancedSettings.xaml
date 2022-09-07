@@ -20,6 +20,15 @@
                 <local:BetterCheckbox x:Name="forceSingleThread" Text="Force single thread" CheckToggled="forceSingleThread_CheckToggled"/>
                 <local:InfoIcon Title="Single Threaded" Text="Forces the renderer to use only 1 thread. Note audio will still be rendered in different threads." HorizontalAlignment="Left" Margin="5,0,0,0"/>
             </DockPanel>
+            <DockPanel>
+                <Label FontSize="14">
+                    Experimental
+                </Label>
+            </DockPanel>
+            <DockPanel>
+                <local:BetterCheckbox x:Name="pseudo3d" Text="Pseudo 3D Notes" CheckToggled="pseudo3d_CheckToggled"/>
+                <local:InfoIcon Title="Pseudo 3D Notes" Text="Projects all of the notes' coordinates to 3D space to achieve a MIDITrail-like effect." HorizontalAlignment="Left" Margin="5,0,0,0"/>
+            </DockPanel>
         </StackPanel>
         <StackPanel Margin="10" Grid.Column="1">
             <DockPanel HorizontalAlignment="Left">

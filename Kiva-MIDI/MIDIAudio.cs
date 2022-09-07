@@ -182,11 +182,21 @@ namespace Kiva_MIDI
                 double evTime = e.time / speed;
                 if (simulatedLagScale != 0)
                 {
+                    /*var timeDist = (evTime - prevTime);
+                    if (evTime < prevTime) evTime = prevTime;
+                    if (timeDist < simulatedLagScale)
+                    {
+                        //evTime += r.NextDouble() / 100 * (simulatedLagScale + timeDist);
+                        evTime = Math.Floor(evTime * 60) / 60;
+                        if (evTime - e.time >= simulatedLagScale)
+                        { }
+                    }
+                    prevTime = evTime;*/
                     var timeDist = (evTime - prevTime);
                     if (evTime < prevTime) evTime = prevTime;
                     if (timeDist < simulatedLagScale)
                     {
-                        evTime += r.NextDouble() / 100 * (simulatedLagScale + timeDist);
+                        evTime = Math.Floor(evTime*60)/60;
                         if (evTime - e.time >= simulatedLagScale)
                         { }
                     }
