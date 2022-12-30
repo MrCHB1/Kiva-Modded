@@ -18,7 +18,7 @@
 - Support for Zenith color palettes and midi color events
 - Epic transparent or semi transparent background if you want
 - 256 key support, as well as dynamic key range option (animating between 88 and 128 keys depending on the notes on screen)
-- 2 different keyboard designs, as well as option to disable keyboard
+- 2 different keyboard designs, as well as an option to disable the keyboard
 
 ## Modded Features
 - Customizable Accent Color
