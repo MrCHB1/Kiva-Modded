@@ -1,0 +1,42 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MSDNSample"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="LanguageName">Espanol</system:String>
+
+    <system:String x:Key="visualTab">Visión</system:String>
+    <system:String x:Key="audioTab">Sonido</system:String>
+    <system:String x:Key="miscTab">Misceláneo</system:String>
+    <system:String x:Key="advancedTab">Avanzado</system:String>
+    <system:String x:Key="otherTab">Otro</system:String>
+
+    <!-- Visual Settings -->
+
+    <system:String x:Key="keyboardKeyRangeLabel">Rangos de teclas</system:String>
+    <system:String x:Key="keyboardRange88">88 teclas</system:String>
+    <system:String x:Key="keyboardRange128">128 teclas</system:String>
+    <system:String x:Key="keyboardRange256">256 teclas</system:String>
+    <system:String x:Key="keyboardRangeMIDI">Rango de teclas MIDI</system:String>
+    <system:String x:Key="keyboardRangeMIDIInfo">Del más a la izquierda para el más derecha nota en el fichero del MIDI.</system:String>
+    <system:String x:Key="keyboardRangeDynamic">Rango 88 - 128 Dinamico</system:String>
+    <system:String x:Key="keyboardRangeDynamicInfo">Las teclado animarán entre 88 y 128 claves, dependiento de qué notas son en la pantalla.</system:String>
+    <system:String x:Key="keyboardRangeCustom">Personalizar</system:String>
+    <system:String x:Key="keyboardRangeCustomTo">A</system:String>
+
+    <system:String x:Key="keyboardStyleLabel">Estilo de teclado</system:String>
+    <system:String x:Key="keyboardStyleBig">Teclado gigante</system:String>
+    <system:String x:Key="keyboardStyleSmall">Teclado pequeño</system:String>
+    <system:String x:Key="keyboardStyleNone">Sin teclado</system:String>
+
+    <system:String x:Key="lockFPS">Bloquear FPS</system:String>
+    <system:String x:Key="lockFPSSync">Sinc.</system:String>
+    <system:String x:Key="lockFPSSyncInfo">El opción de sincronización forzado la velocidad de fotogramas ser sincronizado al fotogramas ser sincronizado de WPF. Parecido al VSync, hacer velocidad de fotogramas suave. Tambien establecer el para 0 lo hace desbloqueado.</system:String>
+
+    <system:String x:Key="paletteNoteLabel">Paleta de los colores de nota</system:String>
+    <system:String x:Key="paletteReload">Recargar</system:String>
+    <system:String x:Key="paletteRandomize">Aleatorizar orden de colores</system:String>
+    <system:String x:Key="paletteShuffle">Aleatorio los colores de la paleta.</system:String>
+    <system:String x:Key="paletteOpenFolder">Abrir la carpeta de la paleta</system:String>
+</ResourceDictionary>

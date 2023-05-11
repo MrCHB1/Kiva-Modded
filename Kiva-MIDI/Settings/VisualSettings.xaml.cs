@@ -68,6 +68,7 @@ namespace Kiva_MIDI
             fpsLock.IsEnabled = !syncFps.IsChecked;
 
             randomisePaletteOrder.IsChecked = settings.General.PaletteRandomized;
+            randomPaletteSeed.Value = settings.General.PaletteSeed;
 
             SetPalettes();
         }
@@ -172,6 +173,12 @@ namespace Kiva_MIDI
             if (!IsInitialized) return;
             settings.General.SyncFPS = syncFps.IsChecked;
             fpsLock.IsEnabled = !syncFps.IsChecked;
+        }
+
+        private void randomPaletteSeed_ValueChanged(object sender, RoutedPropertyChangedEventArgs<decimal> e)
+        {
+            if (!IsInitialized) return;
+            settings.General.PaletteSeed = (int)randomPaletteSeed.Value;
         }
     }
 }

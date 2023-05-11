@@ -463,8 +463,8 @@ namespace Kiva_MIDI
                 }
                 if (loadedFle != null)
                 {
-                    if (e.PropertyName == "PaletteName" || e.PropertyName == "PaletteRandomized")
-                        loadedFle.SetColors(settings.PaletteSettings.Palettes[settings.General.PaletteName], settings.General.PaletteRandomized);
+                    if (e.PropertyName == "PaletteName" || e.PropertyName == "PaletteRandomized" || e.PropertyName == "PaletteSeed")
+                        loadedFle.SetColors(settings.PaletteSettings.Palettes[settings.General.PaletteName], settings.General.PaletteRandomized, settings.General.PaletteSeed);
                 }
             };
 
@@ -511,7 +511,7 @@ namespace Kiva_MIDI
                 renderedNotesLabel.Text = scene.LastRenderedNoteCount.ToString("#,##0");
                 npsLabelLabel.Text = scene.LastNPS.ToString("#,##0");
                 polyphonyLabel.Text = scene.LastPolyphony.ToString("#,##0");
-                bpmLabel.Text = scene.BPM.ToString("#,##0.0");
+                bpmLabel.Text = scene.BPM.ToString("#,##0.000");
                 maxPolyphonyLabel.Text = scene.MaxPolyphony.ToString("#,##0");
 
                 if (Time.GetTime() > midiLen && !Time.Paused && loadedFle != null)
@@ -550,6 +550,12 @@ namespace Kiva_MIDI
                 MessageBox.Show("File " + filename + "not found", "Couldn't open midi file", this);
                 return;
             }
+            string ext = System.IO.Path.GetExtension(filename);
+            if (ext != ".mid" && ext != ".midi")
+            {
+                MessageBox.Show("The extension (" + ext + ") of the file is not .mid or .midi. Please try again.", "Invalid extension!");
+                return;
+            }
             Time.Reset();
             if (selectedAudioEngine == AudioEngine.PreRender)
                 preRenderPlayer.File = null;
@@ -566,7 +572,7 @@ namespace Kiva_MIDI
             loadingForm.ParseFinished += () =>
             {
                 var file = loadingForm.LoadedFile;
-                file.SetColors(settings.PaletteSettings.Palettes[settings.General.PaletteName], settings.General.PaletteRandomized);
+                file.SetColors(settings.PaletteSettings.Palettes[settings.General.PaletteName], settings.General.PaletteRandomized, settings.General.PaletteSeed);
                 if (selectedAudioEngine == AudioEngine.PreRender)
                     preRenderPlayer.File = file;
                 else
@@ -676,7 +682,7 @@ namespace Kiva_MIDI
 
                 if (settings.Soundfonts.Soundfonts.Where(s => s.enabled).Count() == 0)
                 {
-                    MessageBox.Show("No soundfonts Enabled", "All soundfonts are disabled, please enable at least one in audio settings");
+                    MessageBox.Show("All soundfonts are disabled, please enable at least one in audio settings", "No soundfonts Enabled");
                 }
 
                 try
@@ -860,6 +866,11 @@ namespace Kiva_MIDI
         {
             KivaUpdates.KillAllKivas();
             Process.Start(KivaUpdates.InstallerPath, "update -Reopen");
+        }
+
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Kiva Modded " + settings.VersionName + " made by ponluxime.", "Thanks for downloading Kiva Modded " + settings.VersionName);
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Kiva_MIDI
         BufferByteReader reader;
 
         public FastList<TempoEvent> Tempos = new FastList<TempoEvent>();
+        public List<TempoEvent> TempoEvents2 = new List<TempoEvent>();
         public TempoEvent[] globaTempos;
 
         public long noteCount;
@@ -728,6 +729,7 @@ namespace Kiva_MIDI
                             int btempo = 0;
                             for (int i = 0; i != 3; i++)
                                 btempo = (int)((btempo << 8) | reader.Read());
+                            TempoEvents2.Add(new TempoEvent { tempo = btempo, time = (long)(trackSeconds * 1000) });
                         }
                         else if (command == 0x54)
                         {

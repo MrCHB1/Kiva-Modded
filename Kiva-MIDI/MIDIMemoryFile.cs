@@ -12,6 +12,7 @@ namespace Kiva_MIDI
         public MIDIEvent[][] MIDINoteEvents { get; private set; } = null;
         public MIDIEvent[] MIDIControlEvents { get; private set; } = null;
         public Note[][] Notes { get; private set; } = new Note[256][];
+        public TempoEvent[] TemposEvents { get; private set; } = null;
         public int[] FirstRenderNote { get; private set; } = new int[256];
         public int[] FirstUnhitNote { get; private set; } = new int[256];
         public double lastRenderTime { get; set; } = 0;
@@ -97,6 +98,11 @@ namespace Kiva_MIDI
             {
                 int count = loaderSettings.EventPlayerThreads;
                 MIDIControlEvents = TimedMerger<MIDIEvent>.MergeMany(parsers.Select(p => p.ControlEvents).ToArray(), e => e.time).ToArray();
+            });
+            var tempoEventMerger = Task.Run(() =>
+            {
+                int count = loaderSettings.EventPlayerThreads;
+                TemposEvents = TimedMerger<TempoEvent>.MergeMany(parsers.Select(p => p.TempoEvents2).ToArray(), e => e.time).ToArray();
             });
             cancel.ThrowIfCancellationRequested();
             ParseStage = ParsingStage.MergingKeys;

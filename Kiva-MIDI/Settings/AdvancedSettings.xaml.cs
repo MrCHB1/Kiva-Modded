@@ -45,6 +45,7 @@ namespace Kiva_MIDI
             forceSingleThread.IsChecked = !settings.General.MultiThreadedRendering;
             disableTransparency.IsChecked = settings.General.DisableTransparency;
             pseudo3d.IsChecked = settings.General.Pseudo3d;
+            mimicTickBased.IsChecked = settings.General.MimicTickBased;
             valuesSet = true;
         }
 
@@ -70,6 +71,12 @@ namespace Kiva_MIDI
         {
             if (!valuesSet) return;
             settings.General.Pseudo3d = pseudo3d.IsChecked;
+        }
+
+        private void mimicTickBased_CheckToggled(object sender, RoutedPropertyChangedEventArgs<bool> e)
+        {
+            if (!valuesSet) return;
+            settings.General.MimicTickBased = mimicTickBased.IsChecked;
         }
     }
 }

@@ -29,6 +29,10 @@
                 <local:BetterCheckbox x:Name="pseudo3d" Text="Pseudo 3D Notes" CheckToggled="pseudo3d_CheckToggled"/>
                 <local:InfoIcon Title="Pseudo 3D Notes" Text="Projects all of the notes' coordinates to 3D space to achieve a MIDITrail-like effect." HorizontalAlignment="Left" Margin="5,0,0,0"/>
             </DockPanel>
+            <DockPanel>
+                <local:BetterCheckbox x:Name="mimicTickBased" Text="Mimic Tick-Based Rendering" CheckToggled="mimicTickBased_CheckToggled"/>
+                <local:InfoIcon Title="Mimic Tick-Based Rendering" Text="Acts like a tick-based renderer, though only scaling all notes based on the tempo." HorizontalAlignment="Left" Margin="5,0,0,0"/>
+            </DockPanel>
         </StackPanel>
         <StackPanel Margin="10" Grid.Column="1">
             <DockPanel HorizontalAlignment="Left">

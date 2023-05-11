@@ -56,7 +56,7 @@ namespace Kiva_MIDI
             get => render.NotesPassedSum;
         }
 
-        public long BPM
+        public double BPM
         {
             get => render.BPM;
         }

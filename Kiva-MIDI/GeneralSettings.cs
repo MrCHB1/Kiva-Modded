@@ -53,6 +53,7 @@ namespace Kiva_MIDI
         public int CustomFirstKey { get; set; } = 0;
         public int CustomLastKey { get; set; } = 127;
         public bool Pseudo3d { get; set; } = false;
+        public bool MimicTickBased { get; set; } = false;
 
         public KeyboardStyle KeyboardStyle { get; set; } = KeyboardStyle.Big;
 
@@ -70,6 +71,7 @@ namespace Kiva_MIDI
 
         public string PaletteName { get; set; } = "Random.png";
         public bool PaletteRandomized { get; set; } = true;
+        public int PaletteSeed { get; set; } = 0;
 
         public bool HideInfoCard { get; set; } = false;
         public CardParams InfoCardParams { get; set; } = CardParams.AudioBuffer | CardParams.FPS | CardParams.NoteCount | CardParams.NPS | CardParams.Polyphony | CardParams.RenderedNotes | CardParams.Time;
@@ -93,6 +95,8 @@ namespace Kiva_MIDI
         public int MaxRenderThreads { get; set; } = 0;
 
         public bool DisableTransparency { get; set; } = false;
+
+        public string SelectedLanguage { get; set; } = "English";
 
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -109,7 +109,7 @@ namespace Kiva_MIDI
         public long LastNPS => notesPassedPerFrame.Sum();
         public long MaxNPS { get; private set; } = 0;
         public long MaxPolyphony { get; private set; } = 0;
-        public long BPM { get; private set; } = 0;
+        public double BPM { get; private set; } = 0;
         public long LastPolyphony { get; private set; } = 0;
         public long NotesPassedSum { get; private set; } = 0;
 
@@ -503,6 +503,7 @@ namespace Kiva_MIDI
 
                         var colors = file.MidiNoteColors;
                         var lastTime = file.lastRenderTime;
+                        var tempos = file.TemposEvents;
 
                         long notesRendered = 0;
                         int polyphonySum = 0;
@@ -511,12 +512,36 @@ namespace Kiva_MIDI
 
                         int tId = 0;
 
-                        int bpm = 0;
+                        double bpm = 0;
 
                         int firstRenderKey = 256;
                         int lastRenderKey = -1;
 
                         int[] ids;
+
+                        if (lastTime > time)
+                        {
+                            for (tId = 0; tId < tempos.Length; tId++)
+                            {
+                                if ((double)tempos[tId].time / 1000 > time) break;
+                                bpm = 60000000 / (double)tempos[tId].tempo;
+                            }
+                        }
+                        else if (lastTime <= time)
+                        {
+                            for (; tId < tempos.Length; tId++)
+                            {
+                                if ((double)tempos[tId].time / 1000 > time) break;
+                                bpm = 60000000 / (double)tempos[tId].tempo;
+                            }
+                        }
+
+                        // TODO: actually make tick based rendering work
+                        if (bpm != 0 && settings.General.MimicTickBased)
+                        {
+                            timeScale = settings.Volatile.Size * (120 / bpm);
+                            renderCutoff = time + timeScale;
+                        }
 
                         for (int black = 0; black < 2; black++)
                         {
@@ -539,63 +564,64 @@ namespace Kiva_MIDI
                                     RenderNote* rn = stackalloc RenderNote[noteBufferLength];
                                     int nid = 0;
                                     int noff = file.FirstRenderNote[k];
-                                    //if (tempos[tId].time/2033 < time)
-                                    //{
-                                    //    bpm = 60000000/tempos[tId++].tempo;
-                                    //}
                                     if (lastTime > time)
                                     {
-                                        for (noff = 0; noff < notes.Length; noff++)
+                                        for (noff = 0; noff < notes.Length && notes[noff].end <= time; noff++)
                                         {
-                                            if (notes[noff].end > time)
+                                            /*if (notes[noff].end > time)
                                             {
                                                 break;
-                                            }
+                                            }*/
                                         }
-                                        //for (noff = 0; noff < notes.Length && notes[noff].end <= time; noff++) { /* Nothing???? */ }
                                         file.FirstRenderNote[k] = noff;
+
                                     }
                                     else if (lastTime < time)
                                     {
-                                        for (; noff < notes.Length; noff++)
+                                        for (; noff < notes.Length && notes[noff].end <= time; noff++)
                                         {
-                                            if (notes[noff].end > time)
+                                            /*if (notes[noff].end > time)
                                             {
                                                 break;
-                                            }
+                                            }*/
                                         }
-                                        //for (; noff < notes.Length && notes[noff].end <= time; noff++) { /* Nothing???? */ }
                                         file.FirstRenderNote[k] = noff;
                                     }
+
                                     while (noff != notes.Length && notes[noff].start < renderCutoff)
                                     {
                                         var n = notes[noff++];
-                                        if (n.end < time)
+
+                                        if ((colors[n.colorPointer].rgba & 0xff) != 0)
                                         {
-                                            lastHitNote = noff - 1;
-                                            continue;
-                                        }
-                                        if (n.start < time)
-                                        {
-                                            polyphony++;
-                                            pressed = true;
-                                            //NoteCol kcol = file.MidiNoteColors[n.colorPointer];
-                                            kcol = file.MidiNoteColors[n.colorPointer];
-                                            col.rgba = NoteCol.Blend(col.rgba, kcol.rgba);
-                                            col.rgba2 = NoteCol.Blend(col.rgba2, kcol.rgba2);
-                                            lastHitNote = noff - 1;
-                                        }
-                                        _notesRendered++;
-                                        rn[nid++] = new RenderNote()
-                                        {
-                                            start = (float)((n.start - time) / timeScale),
-                                            end = (float)((n.end - time) / timeScale),
-                                            color = colors[n.colorPointer]
-                                        };
-                                        if (nid == noteBufferLength)
-                                        {
-                                            FlushNoteBuffer(context, left, right, (IntPtr)rn, nid);
-                                            nid = 0;
+                                            if (n.end < time)
+                                            {
+                                                lastHitNote = noff - 1;
+                                                continue;
+                                            }
+                                            if (n.start < time)
+                                            {
+                                                polyphony++;
+                                                pressed = true;
+                                                kcol = file.MidiNoteColors[n.colorPointer];
+                                                col.rgba = NoteCol.Blend(col.rgba, kcol.rgba);
+                                                col.rgba2 = NoteCol.Blend(col.rgba2, kcol.rgba2);
+                                                lastHitNote = noff - 1;
+                                            }
+
+                                            _notesRendered++;
+                                            rn[nid++] = new RenderNote()
+                                            {
+                                                start = (float)((n.start - time) / timeScale),
+                                                end = (float)((n.end - time) / timeScale),
+                                                color = colors[n.colorPointer]
+                                            };
+
+                                            if (nid == noteBufferLength)
+                                            {
+                                                FlushNoteBuffer(context, left, right, (IntPtr)rn, nid);
+                                                nid = 0;
+                                            }
                                         }
                                     }
                                     FlushNoteBuffer(context, left, right, (IntPtr)rn, nid);
@@ -623,6 +649,7 @@ namespace Kiva_MIDI
                                 }
                             });
                         }
+
                         if (firstRenderKey <= 19 || lastRenderKey >= 110)
                         {
                             if (dynamicState88)
@@ -687,6 +714,7 @@ namespace Kiva_MIDI
                         renderKeys[i].colorl = 0;
                         renderKeys[i].colorr = 0;
                         renderKeys[i].distance = 0;
+                        renderKeys[i].MarkPressed(false);
                     }
                 }
             }

@@ -252,9 +252,10 @@ namespace Kiva_MIDI
             }
         }
 
-        public void SetColors(Bitmap img, bool randomise)
+        public void SetColors(Bitmap img, bool randomise, int seed)
         {
             Random r = new Random();
+            if (seed != 0) r = new Random(seed);
             double[] order = new double[trackcount * 16];
             int[] coords = new int[trackcount * 16];
             for (int i = 0; i < order.Length; i++)

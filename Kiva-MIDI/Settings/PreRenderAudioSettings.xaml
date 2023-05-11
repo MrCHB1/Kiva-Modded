@@ -41,7 +41,7 @@
                     <Label FontSize="14">
                         Realtime FPS
                     </Label>
-                    <local:NumberSelect x:Name="realtimeFPS" Minimum="1" Maximum="500" Value="60" DecimalPoints="0" VerticalAlignment="Bottom" Width="100" HorizontalAlignment="Left" ValueChanged="realtimeFPS_ValueChanged"/>
+                    <local:NumberSelect x:Name="realtimeFPS" Minimum="1" Maximum="100000" Value="60" DecimalPoints="0" VerticalAlignment="Bottom" Width="100" HorizontalAlignment="Left" ValueChanged="realtimeFPS_ValueChanged"/>
                 </DockPanel>
             </StackPanel>
             <StackPanel Grid.Column="1">
@@ -49,7 +49,7 @@
                     <Label FontSize="14">
                         Voices:
                     </Label>
-                    <local:NumberSelect x:Name="voices" Minimum="32" Maximum="5000" Value="500" DecimalPoints="0" VerticalAlignment="Bottom" Width="100" HorizontalAlignment="Left" ValueChanged="voices_ValueChanged"/>
+                    <local:NumberSelect x:Name="voices" Minimum="1" Maximum="10000" Value="500" DecimalPoints="0" VerticalAlignment="Bottom" Width="100" HorizontalAlignment="Left" ValueChanged="voices_ValueChanged"/>
                 </DockPanel>
                 <local:BetterCheckbox x:Name="disableFx" Margin="5" Text="Disable Soundfont Effects" CheckToggled="disableFx_CheckToggled"/>
             </StackPanel>

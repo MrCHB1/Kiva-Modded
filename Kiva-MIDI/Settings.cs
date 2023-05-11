@@ -16,7 +16,7 @@ namespace Kiva_MIDI
         class loadingSettings { public dynamic version, midi, general; };
         class versionSettings { public string version; public bool enableUpdates; public bool installed; };
 
-        public string VersionName { get; } = "v1.1.16-1m.f1";
+        public string VersionName { get; } = "v1.1.16-4m";
         public bool Installed { get; } = false;
         public bool EnableUpdates { get; } = false;
 
