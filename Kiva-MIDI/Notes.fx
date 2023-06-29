@@ -38,8 +38,13 @@ float2 projectTo3D(float2 vpos)
 {
 	if (pseudo3d)
 	{
+		float2 old = vpos.xy;
 		vpos.x = (vpos.x * 1.32) / (vpos.y + 2);
 		vpos.y = 1 - (1 / (vpos.y + 2)) * 4.1 + 1.38;
+		if (vpos.y > 1.0) {
+			vpos.x = (vpos.x * (old.y + 2)) / 3.0;
+			vpos.y = 1.0;
+		}
 	}
 	return vpos;
 }

@@ -11,11 +11,10 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Border Padding="10">
+        <Border Padding="10" BorderBrush="Black">
             <ScrollViewer Name="miscSettingsList" VerticalScrollBarVisibility="Auto">
                 <StackPanel>
                     <Label FontSize="16">Info Card Values</Label>
-
                     <Label FontSize="12">Runtime</Label>
                     <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="timeLabel" Text="Time"/>
                     <Label FontSize="12">Performance</Label>
@@ -68,6 +67,12 @@
                         Text Color
                     </Label>
                     <local:HexColorPicker ValueChanged="TextColor_ValueChanged" x:Name="textColor" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,4"/>
+                </DockPanel>
+                <DockPanel>
+                    <Label FontSize="14" HorizontalAlignment="Left">
+                        Text Font
+                    </Label>
+                    <local:BetterTextInput ValueChanged="TextFont_ValueChanged" x:Name="textFont" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,4"/>
                 </DockPanel>
                 <local:BetterCheckbox x:Name="hideInfoCard" Text="Hide Info Card" Margin="0,5,0,0" CheckToggled="hideInfoCard_CheckToggled"/>
                 <DockPanel Margin="0,5,0,0" LastChildFill="False">

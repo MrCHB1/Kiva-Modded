@@ -172,6 +172,9 @@
     </ApplicationDefinition>
     <Compile Include="BASSMIDI.cs" />
     <Compile Include="LoudMaxStream.cs" />
+    <Compile Include="Material.WPF\BetterTextInput.xaml.cs">
+      <DependentUpon>BetterTextInput.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Material.WPF\InfoIcon.xaml.cs">
       <DependentUpon>InfoIcon.xaml</DependentUpon>
     </Compile>
@@ -274,6 +277,10 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Page Include="Material.WPF\BetterTextInput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Material.WPF\InfoIcon.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

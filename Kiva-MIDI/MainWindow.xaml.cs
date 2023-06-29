@@ -474,6 +474,15 @@ namespace Kiva_MIDI
             glContainer.Background = new SolidColorBrush(settings.General.BackgroundColor);
             this.titlebar.Background = new SolidColorBrush(settings.General.AccentColor);
             this.Foreground = new SolidColorBrush(settings.General.TextColor);
+            try
+            {
+                this.FontFamily = new FontFamily(settings.General.TextFamily);
+            }
+            catch
+            {
+                this.FontFamily = new FontFamily("Arial");
+                settings.General.TextFamily = "Arial";
+            }
             ((Label)speedPanel.Children[0]).Foreground = new SolidColorBrush(settings.General.TextColor);
             ((Label)sizePanel.Children[0]).Foreground = new SolidColorBrush(settings.General.TextColor);
             speedSlider.Foreground = new SolidColorBrush(settings.General.TextColor);
@@ -547,13 +556,13 @@ namespace Kiva_MIDI
         {
             if (!File.Exists(filename))
             {
-                MessageBox.Show("File " + filename + "not found", "Couldn't open midi file", this);
+                MessageBox.Show("File " + filename + "not found", "Couldn't open midi file", settings.General.TextFamily, settings.General.AccentColor, settings.General.TextColor);
                 return;
             }
             string ext = System.IO.Path.GetExtension(filename);
             if (ext != ".mid" && ext != ".midi")
             {
-                MessageBox.Show("The extension (" + ext + ") of the file is not .mid or .midi. Please try again.", "Invalid extension!");
+                MessageBox.Show("The extension (" + ext + ") of the file is not .mid or .midi. Please try again.", "Invalid extension!", settings.General.TextFamily, settings.General.AccentColor, settings.General.TextColor);
                 return;
             }
             Time.Reset();

@@ -68,6 +68,7 @@ namespace Kiva_MIDI
         public Color BarColor2 { get; set; } = Color.FromArgb(255, 0x00, 0x55, 0x80);
         public Color AccentColor { get; set; } = Color.FromArgb(255, 0x00, 0xAA, 0xFF);
         public Color TextColor { get; set; } = Color.FromArgb(255, 0, 0, 0);
+        public string TextFamily { get; set; } = "Segoe UI";
 
         public string PaletteName { get; set; } = "Random.png";
         public bool PaletteRandomized { get; set; } = true;

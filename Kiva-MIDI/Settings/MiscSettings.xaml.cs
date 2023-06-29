@@ -21,6 +21,8 @@ namespace Kiva_MIDI
     public partial class MiscSettings : UserControl
     {
         private Settings settings;
+        public SolidColorBrush ForegroundColor {
+            get { return new SolidColorBrush(Color.FromRgb(255, 0, 0)); } set { } }
 
         public Settings Settings
         {
@@ -33,6 +35,7 @@ namespace Kiva_MIDI
 
         public MiscSettings()
         {
+            this.ForegroundColor = new SolidColorBrush(Color.FromRgb(255, 0, 0));
             InitializeComponent();
         }
 
@@ -45,6 +48,7 @@ namespace Kiva_MIDI
             barColor2.Visibility = isBarGradient.IsChecked ? Visibility.Visible : Visibility.Collapsed;
             accentColor.Color = settings.General.AccentColor;
             textColor.Color = settings.General.TextColor;
+            textFont.Text = settings.General.TextFamily;
             hideInfoCard.IsChecked = settings.General.HideInfoCard;
             windowTopmost.IsChecked = settings.General.MainWindowTopmost;
             discordRP.IsChecked = settings.General.DiscordRP;
@@ -113,6 +117,22 @@ namespace Kiva_MIDI
             if (IsInitialized)
             {
                 settings.General.TextColor = textColor.Color;
+            }
+        }
+
+        private void TextFont_ValueChanged(object sender, RoutedPropertyChangedEventArgs<string> e)
+        {
+            if (IsInitialized)
+            {
+                if (textFont.Text == "")
+                {
+                    textFont.Text = "Arial";
+                    settings.General.TextFamily = textFont.Text;
+                }
+                else
+                {
+                    settings.General.TextFamily = textFont.Text;
+                }
             }
         }
 

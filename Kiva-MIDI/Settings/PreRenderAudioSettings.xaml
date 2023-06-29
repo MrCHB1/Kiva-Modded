@@ -22,7 +22,7 @@
             </Grid.ColumnDefinitions>
             <StackPanel>
                 <DockPanel>
-                    <Label FontSize="14">
+                    <Label FontSize="14" Foreground="{Binding TextColor}">
                         Buffer length (seconds):
                     </Label>
                     <local:NumberSelect x:Name="bufferLength" Minimum="10" Maximum="3600" Value="60" DecimalPoints="0" VerticalAlignment="Bottom" Width="100" HorizontalAlignment="Left" ValueChanged="bufferLength_ValueChanged"/>

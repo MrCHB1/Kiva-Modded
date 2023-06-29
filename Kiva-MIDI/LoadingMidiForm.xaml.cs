@@ -58,6 +58,17 @@ namespace Kiva_MIDI
             InitializeComponent();
             this.filepath = filepath;
             this.settings = settings;
+            this.Foreground = new SolidColorBrush(settings.General.TextColor);
+            this.Background = new SolidColorBrush(settings.General.AccentColor);
+            try
+            {
+                this.FontFamily = new FontFamily(settings.General.TextFamily);
+            }
+            catch
+            {
+                this.FontFamily = new FontFamily("Arial");
+                settings.General.TextFamily = "Arial";
+            }
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

@@ -36,8 +36,8 @@ namespace Kiva_MIDI
         double loudnessR = 1;
         double velocityR = 0;
         double velocityL = 0;
-        double attack = 100;
-        double falloff = 48000 / 3;
+        double attack = 5;
+        double falloff = 48000 / 6;
         double strength = 1;
         double minThresh = 0.4;
         double velocityThresh = 1;

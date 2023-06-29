@@ -164,7 +164,15 @@ namespace Kiva_MIDI
             this.titlebar.Background = new SolidColorBrush(settings.General.AccentColor);
             this.content.Background = new SolidColorBrush(settings.General.AccentColor);
             this.Foreground = new SolidColorBrush(settings.General.TextColor);
-
+            try
+            {
+                this.FontFamily = new FontFamily(settings.General.TextFamily);
+            }
+            catch
+            {
+                this.FontFamily = new FontFamily("Arial");
+                settings.General.TextFamily = "Arial";
+            }
             foreach (var _t in tabPanel.Children)
             {
                 var t = (Button)_t;

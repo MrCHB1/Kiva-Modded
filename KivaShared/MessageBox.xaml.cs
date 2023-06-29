@@ -73,6 +73,14 @@ namespace KivaShared
             new MessageBox(title, message) { Owner = parent }.ShowDialog();
         }
 
+        public static void Show(string message, string title, string FontFamily, Color Foreground, Color Background)
+        {
+            MessageBox msb = new MessageBox(title, message);
+            msb.Foreground = new SolidColorBrush(Foreground);
+            msb.Background = new SolidColorBrush(Background);
+            msb.ShowDialog();
+        }
+
         public static void Show(string message)
         {
             Show(message, "");
