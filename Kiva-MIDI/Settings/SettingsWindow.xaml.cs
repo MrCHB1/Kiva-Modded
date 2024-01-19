@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -138,6 +139,7 @@ namespace Kiva_MIDI
         #endregion
 
         Settings settings;
+        List<Uri> LanguagePaths = new List<Uri>();
 
         public SettingsWindow(Settings settings)
         {
@@ -149,11 +151,14 @@ namespace Kiva_MIDI
                 IntPtr handle = (new WindowInteropHelper(this)).Handle;
                 HwndSource.FromHwnd(handle).AddHook(new HwndSourceHook(WindowProc));
             };
-
+            
             visualSettings.Settings = settings;
             audioSettings.Settings = settings;
             miscSettings.Settings = settings;
             advancedSettings.Settings = settings;
+            otherSettings.Settings = settings;
+
+            this.Resources.MergedDictionaries[1].Source = settings.General.LanguageURIs[settings.General.SelectedLanguageIndex];
 
             var selectBrush = new SolidColorBrush(Color.FromArgb(50, 255, 255, 255));
 

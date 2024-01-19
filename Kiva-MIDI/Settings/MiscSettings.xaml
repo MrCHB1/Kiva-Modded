@@ -6,6 +6,13 @@
              xmlns:local="clr-namespace:Kiva_MIDI"
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="600">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Languages/en/window.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -14,27 +21,27 @@
         <Border Padding="10" BorderBrush="Black">
             <ScrollViewer Name="miscSettingsList" VerticalScrollBarVisibility="Auto">
                 <StackPanel>
-                    <Label FontSize="16">Info Card Values</Label>
-                    <Label FontSize="12">Runtime</Label>
-                    <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="timeLabel" Text="Time"/>
-                    <Label FontSize="12">Performance</Label>
-                    <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="fpsLabel" Text="FPS"/>
+                    <Label FontSize="16" Content="{DynamicResource infoCardValues}" />
+                    <Label FontSize="12" Content="{DynamicResource runtimeLabel}" />
+                    <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="timeLabel" Text="{DynamicResource setting_time}"/>
+                    <Label FontSize="12" Content="{DynamicResource performanceLabel}"/>
+                    <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="fpsLabel" Text="{DynamicResource setting_FPS}"/>
                     <DockPanel HorizontalAlignment="Left">
-                        <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="estimatedFpsLabel" Text="Estimated FPS"/>
-                        <local:InfoIcon Margin="5,1,0,0" Title="Estimated FPS" Text="Due to Kiva's multithreading, unlocking the FPS can make Kiva to fight for resources with all other programs causing stutter. This option allows Kiva to estimate what FPS you would have *if it was unlocked* while it's locked."/>
+                        <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="estimatedFpsLabel" Text="{DynamicResource setting_estFPS}"/>
+                        <local:InfoIcon Margin="5,1,0,0" Title="{DynamicResource setting_estFPS}" Text="{DynamicResource setting_estFPSHelp}"/>
                     </DockPanel>
-                    <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="renderedNotesLabel" Text="Rendered Notes"/>
-                    <Label FontSize="12">MIDI</Label>
-                    <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="ncLabel" Text="Note Count"/>
-                    <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="npsLabel" Text="NPS"/>
-                    <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="maxNpsLabel" Text="Max NPS"/>
-                    <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="bpmLabel" Text="BPM"/>
-                    <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="polyphonyLabel" Text="Polyphony"/>
-                    <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="maxPolyphonyLabel" Text="Max Polyphony"/>
-                    <Label FontSize="12">Advanced</Label>
+                    <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="renderedNotesLabel" Text="{DynamicResource setting_rndNotes}"/>
+                    <Label FontSize="12" Content="{DynamicResource midiLabel}" />
+                    <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="ncLabel" Text="{DynamicResource setting_noteCount}"/>
+                    <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="npsLabel" Text="{DynamicResource setting_NPS}"/>
+                    <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="maxNpsLabel" Text="{DynamicResource setting_NPSMax}"/>
+                    <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="bpmLabel" Text="{DynamicResource setting_BPM}"/>
+                    <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="polyphonyLabel" Text="{DynamicResource setting_polyphony}"/>
+                    <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="maxPolyphonyLabel" Text="{DynamicResource setting_polyphonyMax}"/>
+                    <Label FontSize="12" Content="{DynamicResource advancedLabel}" />
                     <DockPanel HorizontalAlignment="Left">
-                        <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="bufferLengthLabel" Text="Audio Buffer Length"/>
-                        <local:InfoIcon Margin="5,1,0,0" Title="Audio Buffer Length" Text="Length of the pre-render audio buffer. Doesn't show anything when KDMAPI or WinMM are selected."/>
+                        <local:BetterCheckbox CheckToggled="cardLabel_CheckToggled" x:Name="bufferLengthLabel" Text="{DynamicResource setting_audioBufferLength}"/>
+                        <local:InfoIcon Margin="5,1,0,0" Title="{DynamicResource setting_audioBufferLength}" Text="{DynamicResource setting_audioBufferLengthHelp}"/>
                     </DockPanel>
                 </StackPanel>
             </ScrollViewer>
@@ -42,44 +49,34 @@
         <Border Grid.Column="1" Padding="10">
             <StackPanel>
                 <DockPanel>
-                    <Label FontSize="14" HorizontalAlignment="Left">
-                        Background Color
-                    </Label>
+                    <Label FontSize="14" HorizontalAlignment="Left" Content="{DynamicResource setting_bgColor}"/>
                     <local:HexColorPicker ValueChanged="BackgroundColor_ValueChanged" UseAlpha="True" x:Name="backgroundColor" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,4"/>
                 </DockPanel>
-                <local:BetterCheckbox CheckToggled="BarGradient_ValueChanged" x:Name="isBarGradient" Text="Use secondary bar color"/>
+                <local:BetterCheckbox CheckToggled="BarGradient_ValueChanged" x:Name="isBarGradient" Text="{DynamicResource setting_barColorSecond}"/>
                 <DockPanel>
-                    <Label FontSize="14" HorizontalAlignment="Left">
-                        Bar Color
-                    </Label>
+                    <Label FontSize="14" HorizontalAlignment="Left" Content="{DynamicResource setting_barColorLabel}"/>
                     <local:HexColorPicker ValueChanged="BarColor_ValueChanged" x:Name="barColor" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,4"/>
                     <local:HexColorPicker ValueChanged="BarColor2_ValueChanged" x:Name="barColor2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="4,0,0,4"/>
                 </DockPanel>
                 <DockPanel>
-                    <Label FontSize="14" HorizontalAlignment="Left">
-                        Accent Color
-                    </Label>
+                    <Label FontSize="14" HorizontalAlignment="Left" Content="{DynamicResource setting_accentCol}"/>
                     <local:HexColorPicker ValueChanged="AccentColor_ValueChanged" x:Name="accentColor" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,4"/>
-                    <local:InfoIcon Margin="0,0,0,0" Title="AccCol" Text="Changes the overall appearance of Kiva (Requires a restart)"/>
+                    <local:InfoIcon Margin="0,0,0,0" Title="{DynamicResource setting_accentCol}" Text="{DynamicResource setting_accentColHelp}"/>
                 </DockPanel>
                 <DockPanel>
-                    <Label FontSize="14" HorizontalAlignment="Left">
-                        Text Color
-                    </Label>
+                    <Label FontSize="14" HorizontalAlignment="Left" Content="{DynamicResource setting_textCol}"/>
                     <local:HexColorPicker ValueChanged="TextColor_ValueChanged" x:Name="textColor" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,4"/>
                 </DockPanel>
                 <DockPanel>
-                    <Label FontSize="14" HorizontalAlignment="Left">
-                        Text Font
-                    </Label>
+                    <Label FontSize="14" HorizontalAlignment="Left" Content="{DynamicResource setting_textFont}"/>
                     <local:BetterTextInput ValueChanged="TextFont_ValueChanged" x:Name="textFont" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,4"/>
                 </DockPanel>
-                <local:BetterCheckbox x:Name="hideInfoCard" Text="Hide Info Card" Margin="0,5,0,0" CheckToggled="hideInfoCard_CheckToggled"/>
+                <local:BetterCheckbox x:Name="hideInfoCard" Text="{DynamicResource setting_hideInfoCard}" Margin="0,5,0,0" CheckToggled="hideInfoCard_CheckToggled"/>
                 <DockPanel Margin="0,5,0,0" LastChildFill="False">
-                    <local:BetterCheckbox x:Name="windowTopmost" Text="Main Window Topmost" CheckToggled="windowTopmost_CheckToggled"/>
-                    <local:InfoIcon Margin="5,0,0,0" Title="Topmost" Text="The Kiva window will always appear above other windows"/>
+                    <local:BetterCheckbox x:Name="windowTopmost" Text="{DynamicResource setting_mainWindowTopmost}" CheckToggled="windowTopmost_CheckToggled"/>
+                    <local:InfoIcon Margin="5,0,0,0" Title="{DynamicResource setting_mainWindowTopmost}" Text="{DynamicResource setting_mainWTHelp}"/>
                 </DockPanel>
-                <local:BetterCheckbox x:Name="discordRP" Text="Discord Rich Presence" Margin="0,5,0,0" CheckToggled="discordRP_CheckToggled"/>
+                <local:BetterCheckbox x:Name="discordRP" Text="{DynamicResource setting_discordRichPresence}" Margin="0,5,0,0" CheckToggled="discordRP_CheckToggled"/>
             </StackPanel>
         </Border>
     </Grid>

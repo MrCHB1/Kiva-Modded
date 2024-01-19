@@ -407,6 +407,8 @@ namespace Kiva_MIDI
 
             d3d.FPSLock = settings.General.FPSLock;
 
+            if (settings != null) this.Resources.MergedDictionaries[1].Source = settings.General.LanguageURIs[settings.General.SelectedLanguageIndex];
+
             Time.TimeChanged += () =>
             {
                 if (Time.Paused)

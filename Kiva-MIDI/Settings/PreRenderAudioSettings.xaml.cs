@@ -67,6 +67,8 @@ namespace Kiva_MIDI
             SetSizeLabel();
 
             SetSfs();
+
+            if (settings != null) this.Resources.MergedDictionaries[2].Source = settings.General.LanguageURIs[settings.General.SelectedLanguageIndex];
         }
 
         public void DispatcherSetSfs(bool reload)

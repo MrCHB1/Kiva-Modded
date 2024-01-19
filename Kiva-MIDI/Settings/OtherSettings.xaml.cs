@@ -22,7 +22,8 @@ namespace Kiva_MIDI
     public partial class OtherSettings : UserControl
     {
         private Settings settings;
-        List<Dictionary<string, ResourceDictionary>> Languages = new List<Dictionary<string, ResourceDictionary>>();
+        //List<Dictionary<string, ResourceDictionary>> Languages = new List<Dictionary<string, ResourceDictionary>>();
+        List<Uri> LanguagePaths = new List<Uri>();
 
         public Settings Settings
         {
@@ -39,7 +40,7 @@ namespace Kiva_MIDI
 
             // get language and stuff idk (code is from zenith)
             var languagePacks = Directory.GetDirectories("Languages");
-            foreach (var language in languagePacks)
+            /*foreach (var language in languagePacks)
             {
                 var resources = Directory.GetFiles(language).Where((l) => l.EndsWith(".xaml")).ToList();
                 if (resources.Count == 0) continue;
@@ -55,32 +56,32 @@ namespace Kiva_MIDI
                 if (!fullDict.ContainsKey("window")) continue;
                 if (fullDict["window"].Contains("LanguageName") && fullDict["window"]["LanguageName"].GetType() == typeof(string))
                     Languages.Add(fullDict);
-            }
+            }*/
+
+            /*foreach (var language in languagePacks)
+            {
+                var resources = Directory.GetFiles(language).Where((l) => l.EndsWith(".xaml")).ToList();
+                if (resources.Count == 0) continue;
+
+                foreach (var r in resources)
+                {
+                    ResourceDictionary file = new ResourceDictionary();
+                    LanguagePaths.Add(new Uri(Path.GetFullPath(r), UriKind.RelativeOrAbsolute));
+                }
+            }*/
         }
 
         void SetValues()
         {
-            LangaugeSelect.SelectedItem = settings.General.SelectedLanguage;
+            if (settings == null) return;
+            LangaugeSelect.SelectedIndex = settings.General.SelectedLanguageIndex;
+            this.Resources.MergedDictionaries[0].Source = settings.General.LanguageURIs[settings.General.SelectedLanguageIndex];
         }
 
         private void LangaugeSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            switch (LangaugeSelect.SelectedItem)
-            {
-                case "English":
-                    {
-                        SetLanguage(0);
-                        break;
-                    }
-            }
-        }
-
-        private void SetLanguage(int langIdx)
-        {
-            //Console.WriteLine(Application.Current.Resources["visualTab"]);
-            Application.Current.Resources.MergedDictionaries[0].MergedDictionaries.Clear();
-            Application.Current.Resources.MergedDictionaries[0].MergedDictionaries.Add(Languages[0]["window"]);
-            Application.Current.Resources.MergedDictionaries[0].MergedDictionaries.Add(Languages[langIdx]["window"]);
+            if (settings == null) return;
+            settings.General.SelectedLanguageIndex = LangaugeSelect.SelectedIndex;
         }
     }
 }

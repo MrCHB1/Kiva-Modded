@@ -1,0 +1,140 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MSDNSample"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="LanguageName">Čeština</system:String>
+
+    <!-- MAIN WINDOW -->
+
+    <system:String x:Key="info_timeLabel">Čas:</system:String>
+    <system:String x:Key="info_FPSLabel">FPS:</system:String>
+    <system:String x:Key="info_estFPSLabel">Odhadované FPS:</system:String>
+    <system:String x:Key="info_renderedNotesLabel">Vykreslené Noty:</system:String>
+    <system:String x:Key="info_nps">Noty Za Sekundu:</system:String>
+    <system:String x:Key="info_npsMax">Max NZS:</system:String>
+    <system:String x:Key="info_polyphony">Vícehlas:</system:String>
+    <system:String x:Key="info_polyphonyMax">Max Vícehlas:</system:String>
+    <system:String x:Key="info_BPM">BPM:</system:String>
+    <system:String x:Key="info_noteCount">Počet Not:</system:String>
+    <system:String x:Key="info_notePassed">Prošlé Noty:</system:String>
+    <system:String x:Key="info_audioBuffer">Generace Zvuku:</system:String>
+
+    <system:String x:Key="noteSpeedLabel">Rychlost:</system:String>
+    <system:String x:Key="noteSpeedHelp">Časové měřítko. Čím vyšší zadáte číslo, tím rychlejší bude přehrávání.</system:String>
+    <system:String x:Key="noteSizeLabel">Velikost:</system:String>
+    <system:String x:Key="noteSizeHelp">'Velikost' vykreslených not. Čím menší velikost, tím rychleji 'padají'.</system:String>
+
+    <system:String x:Key="skipAudioEventsLabel">Přeskakování Zvukových Akcí</system:String>
+
+    <!-- START OF SETTINGS -->
+
+    <system:String x:Key="visualTab">Video</system:String>
+    <system:String x:Key="audioTab">Audio</system:String>
+    <system:String x:Key="miscTab">Vedlejší</system:String>
+    <system:String x:Key="advancedTab">Pokročilé</system:String>
+    <system:String x:Key="otherTab">Ostatí</system:String>
+
+    <!-- Visual Settings -->
+
+    <system:String x:Key="keyboardKeyRangeLabel">Rozmezí Klávesnice</system:String>
+    <system:String x:Key="keyboardKeyRangeHelp">Viditelné Rozmezí Kláves. Klávesnice si nechává smůj poměr stran při změně velikosti.</system:String>
+    <system:String x:Key="keyboardRange88">88 Kláves</system:String>
+    <system:String x:Key="keyboardRange128">128 Kláves</system:String>
+    <system:String x:Key="keyboardRange256">256 Kláves</system:String>
+    <system:String x:Key="keyboardRangeMIDI">Rozmezí Souboru MIDI</system:String>
+    <system:String x:Key="keyboardRangeMIDIInfo">Od nejnižší do nejvyšší noty v souboru MIDI.</system:String>
+    <system:String x:Key="keyboardRangeDynamic">Dynamické Rozmezí 88-128</system:String>
+    <system:String x:Key="keyboardRangeDynamicInfo">Klavesnice bude animovat mezi 88 kláves a 128, Podle počtu not na obrazovce.</system:String>
+    <system:String x:Key="keyboardRangeCustom">Vlastní Velikost</system:String>
+    <system:String x:Key="keyboardRangeCustomTo">Do</system:String>
+
+    <system:String x:Key="keyboardStyleLabel">Styl Klávesnice</system:String>
+    <system:String x:Key="keyboardStyleBig">Velká</system:String>
+    <system:String x:Key="keyboardStyleSmall">Malá</system:String>
+    <system:String x:Key="keyboardStyleNone">Žádná</system:String>
+
+    <system:String x:Key="lockFPS">Uzamknout FPS</system:String>
+    <system:String x:Key="lockFPSSync">Synchronizovat</system:String>
+    <system:String x:Key="lockFPSSyncInfo">Nutí FPS na vykreslovací snímkovou frekvenci WPF. Velice podobné VSync, tvoří jemnější FPS. Změna čísla na '0' odemkne snímkovou frekvenci.</system:String>
+
+    <system:String x:Key="palettesLabel">Palety</system:String>
+    <system:String x:Key="palettesLabelHelp">Fungují stejně jako Zenith Palety. Obrázek musí být formátu PNG, buď 16 nebo 32 pixelů široký. Každý sloupec je MIDI kanál, Každá řada je kolej. Pokud je obrázek 32 pixelů široký, tak každý 2 sloupce tvoří 1 MIDI kanál, čímž noty budou mít barevné sklony.</system:String>
+    <system:String x:Key="paletteNoteLabel">Paleta Barev Not</system:String>
+    <system:String x:Key="paletteReload">Načíst Znovu</system:String>
+    <system:String x:Key="paletteRandomize">Randomizovat Pořadí Barev</system:String>
+    <system:String x:Key="paletteShuffle">Proházet Barvy v Paletě.</system:String>
+    <system:String x:Key="paletteOpenFolder">Otevřít Složku</system:String>
+    <system:String x:Key="paletteSeedLabel">Semínko Randomizace</system:String>
+
+    <!-- Audio Settings -->
+
+    <system:String x:Key="renderingEngineLabel">Jádro Generace Zvuku:</system:String>
+    <system:String x:Key="bufferLengthLabel">Délka Generace (Sekundy):</system:String>
+    <system:String x:Key="simulatedRTLagLabel">Simulované Zpoždění v Reálném Čase (ms)</system:String>
+    <system:String x:Key="simulatedRTLagHelp">Pokud opravdu chete použít generovaný zvuk ale chcete, aby zněl jak v reálném čase. '0' znamená vypnutý. Malé hodnoty (10-20) Mužou tvořit jemný renderovaný zvuk.</system:String>
+    <system:String x:Key="rtFPSLabel">FPS v Reálném Čase</system:String>
+
+    <system:String x:Key="voicesLabel">Počet Hlasů:</system:String>
+    <system:String x:Key="disableFXLabel">Vypnout Efekty Zvukových Banek</system:String>
+
+    <!-- Misc Settings -->
+
+    <system:String x:Key="infoCardValues">Hodnoty Informační Karty</system:String>
+
+    <system:String x:Key="runtimeLabel">Délka Souboru</system:String>
+    <system:String x:Key="setting_time">Čas</system:String>
+
+    <system:String x:Key="performanceLabel">Výkon</system:String>
+    <system:String x:Key="setting_FPS">FPS</system:String>
+    <system:String x:Key="setting_estFPS">Odhadované FPS</system:String>
+    <system:String x:Key="setting_estFPSHelp">Kvůli Kiva multithreading, Odemknutí FPS může způsobit Kivu bojovat o výkon, a ostatní programy se můžou trochu sekat. Toto nastavení může ukázat snímky za sekundu *kdyby byly odemčené*, když jsou uzamčené.</system:String>
+    <system:String x:Key="setting_rndNotes">Vykreslené Noty</system:String>
+
+    <system:String x:Key="midiLabel">MIDI</system:String>
+    <system:String x:Key="setting_noteCount">Počet Not</system:String>
+    <system:String x:Key="setting_NPS">Noty Za Sekundu</system:String>
+    <system:String x:Key="setting_NPSMax">Max NZS</system:String>
+    <system:String x:Key="setting_BPM">BPM</system:String>
+    <system:String x:Key="setting_polyphony">Vícehlas</system:String>
+    <system:String x:Key="setting_polyphonyMax">Max Vícehlas</system:String>
+
+    <system:String x:Key="advancedLabel">Pokročilé</system:String>
+    <system:String x:Key="setting_audioBufferLength">Délka Generace Zvuku</system:String>
+    <system:String x:Key="setting_audioBufferLengthHelp">Délka předem generovaného zvuku. Nic neukazuje když máte zaplé KDMAPI a nebo WINMM.</system:String>
+
+    <system:String x:Key="setting_bgColor">Barva Pozadí</system:String>
+    <system:String x:Key="setting_barColorSecond">Použít dvě barvy na pruh</system:String>
+    <system:String x:Key="setting_barColorLabel">Barva Pruhu</system:String>
+    <system:String x:Key="setting_accentCol">Barva Aplikace</system:String>
+    <system:String x:Key="setting_accentColHelp">Zmení celkovou barvu Kivy (Nutný restart)</system:String>
+    <system:String x:Key="setting_textCol">Barva Text</system:String>
+    <system:String x:Key="setting_textFont">Text Font</system:String>
+    <system:String x:Key="setting_hideInfoCard">Schovat Informační Kartu</system:String>
+    <system:String x:Key="setting_mainWindowTopmost">Hlavního Okno</system:String>
+    <system:String x:Key="setting_mainWTHelp">Okno Kivy se vždy ukáže nad ostatnímy aplikacemy.</system:String>
+    <system:String x:Key="setting_discordRichPresence">Bohatá přítomnost na Discordu</system:String>
+
+    <!-- Advanced Settings -->
+
+    <system:String x:Key="setting_maxRenderThreads">Máx Vykreslovacích vláken</system:String>
+    <system:String x:Key="setting_forceSingleThread">Vynutit jedno vlákno</system:String>
+    <system:String x:Key="setting_forceSTHelp">Vynutí vykreslování, aby použil jen jedno vlákno. Zvuk bude generován v dalších vláknech.</system:String>
+
+    <system:String x:Key="experimentalLabel">Experimentální</system:String>
+    <system:String x:Key="setting_pseudo3DNotes">Pseudo 3D Notes</system:String>
+    <system:String x:Key="setting_pseudo3DNHelp">'Projektuje všechny noty na obrazovce v 3D prostoru pro dosažení MIDITrail effectu.</system:String>
+    <system:String x:Key="setting_mimicTickRendering">Falešný Tick-Based Renderování</system:String>
+    <system:String x:Key="setting_mimicTRHelp">Chová se jako tick-based render, ale velikost not se mění pouze skrz BPM.</system:String>
+
+    <system:String x:Key="requireRestartLabel">Nutný Restart</system:String>
+    <system:String x:Key="requireRestartHelp">Aby se uložily změny, tak musíte Kivu vypnout a zapnout.</system:String>
+    <system:String x:Key="setting_disableTransparency">Vypnout průhlednost okna</system:String>
+    <system:String x:Key="setting_disableTransHelp">Občas programy jako OBS mají problém nahrávat Kivu. Tohle nastavení s tím může pomoct.</system:String>
+
+    <!-- Other Settings -->
+
+    <system:String x:Key="setting_languageLabel">Jazyk</system:String>
+
+</ResourceDictionary>

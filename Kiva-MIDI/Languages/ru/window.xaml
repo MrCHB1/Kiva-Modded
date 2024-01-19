@@ -1,0 +1,140 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MSDNSample"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="LanguageName">Русский</system:String>
+
+    <!-- MAIN WINDOW -->
+
+    <system:String x:Key="info_timeLabel">Время:</system:String>
+    <system:String x:Key="info_FPSLabel">К/С:</system:String>
+    <system:String x:Key="info_estFPSLabel">Приблизительные К/С:</system:String>
+    <system:String x:Key="info_renderedNotesLabel">Обработанные Ноты:</system:String>
+    <system:String x:Key="info_nps">Н/С:</system:String>
+    <system:String x:Key="info_npsMax">Макс Н/С:</system:String>
+    <system:String x:Key="info_polyphony">Полифония:</system:String>
+    <system:String x:Key="info_polyphonyMax">Макс Полифония:</system:String>
+    <system:String x:Key="info_BPM">Темп:</system:String>
+    <system:String x:Key="info_noteCount">Ноты:</system:String>
+    <system:String x:Key="info_notePassed">Пройдено:</system:String>
+    <system:String x:Key="info_audioBuffer">Аудио Буфер:</system:String>
+
+    <system:String x:Key="noteSpeedLabel">Скорость:</system:String>
+    <system:String x:Key="noteSpeedHelp">Относительная шкала времени. Выше числа дают быстрее скорость.</system:String>
+    <system:String x:Key="noteSizeLabel">Размер:</system:String>
+    <system:String x:Key="noteSizeHelp">«Размер» нот. Чем меньше размер, тем быстрее они падают.</system:String>
+
+    <system:String x:Key="skipAudioEventsLabel">Пропускаем Аудио События</system:String>
+
+    <!-- START OF SETTINGS -->
+
+    <system:String x:Key="visualTab">Визуал</system:String>
+    <system:String x:Key="audioTab">Аудио</system:String>
+    <system:String x:Key="miscTab">Разное</system:String>
+    <system:String x:Key="advancedTab">Расширенное</system:String>
+    <system:String x:Key="otherTab">Другое</system:String>
+
+    <!-- Visual Settings -->
+
+    <system:String x:Key="keyboardKeyRangeLabel">Диапазон Клавиатуры</system:String>
+    <system:String x:Key="keyboardKeyRangeHelp">Виденный диапазон клавиш. Клавиатура сохраняет соотношение сторон при изменения размера.</system:String>
+    <system:String x:Key="keyboardRange88">88 Клавиш</system:String>
+    <system:String x:Key="keyboardRange128">128 Клавиш</system:String>
+    <system:String x:Key="keyboardRange256">256 Клавиш</system:String>
+    <system:String x:Key="keyboardRangeMIDI">Диапазон MIDI</system:String>
+    <system:String x:Key="keyboardRangeMIDIInfo">От самой левой до самой правой ноты в MIDI файле.</system:String>
+    <system:String x:Key="keyboardRangeDynamic">Динамишный диапозон 88-128</system:String>
+    <system:String x:Key="keyboardRangeDynamicInfo">Смотря какие ноты на экране, клавиатура будет передвигаться между 128 и 88 клавиш.</system:String>
+    <system:String x:Key="keyboardRangeCustom">Кастом</system:String>
+    <system:String x:Key="keyboardRangeCustomTo">До</system:String>
+
+    <system:String x:Key="keyboardStyleLabel">Стиль Клавиатуры</system:String>
+    <system:String x:Key="keyboardStyleBig">Большая Клавиатура</system:String>
+    <system:String x:Key="keyboardStyleSmall">Маленькая Клавиатура</system:String>
+    <system:String x:Key="keyboardStyleNone">Без Клавиатуры</system:String>
+
+    <system:String x:Key="lockFPS">Лимитировать К/С</system:String>
+    <system:String x:Key="lockFPSSync">Синхронизировать</system:String>
+    <system:String x:Key="lockFPSSyncInfo">Это опция заставляет частоту кадров быть синхронизированным к процессу WPF. Похоже на VSync, делает видео более гладким. Ставить К/С на 0 уберает лимит.</system:String>
+
+    <system:String x:Key="palettesLabel">Палитры</system:String>
+    <system:String x:Key="palettesLabelHelp">Работает тошно также как и в программе Zenith. Картинка должна быть в формате PNG, или 16 или 32 пикселей в ширину, где каждый столб обозначает канал, и каждый ряд обозначает трак. Если картинка 32 пикселей в ширину, каждые два ряда обозначают канал, это даёт нотам градиент.</system:String>
+    <system:String x:Key="paletteNoteLabel">Цветавая Палитра Цветов</system:String>
+    <system:String x:Key="paletteReload">Перезагрузить</system:String>
+    <system:String x:Key="paletteRandomize">Рандомизировать Порядок Цветов</system:String>
+    <system:String x:Key="paletteShuffle">Меняет места всех цветов.</system:String>
+    <system:String x:Key="paletteOpenFolder">Открыть Папку с Палитрами</system:String>
+    <system:String x:Key="paletteSeedLabel">Номер Палитры</system:String>
+
+    <!-- Audio Settings -->
+
+    <system:String x:Key="renderingEngineLabel">Механизм Обработки:</system:String>
+    <system:String x:Key="bufferLengthLabel">Длина буфера (секундах):</system:String>
+    <system:String x:Key="simulatedRTLagLabel">Симулированный Лаг Реального Времени (мс)</system:String>
+    <system:String x:Key="simulatedRTLagHelp">Если очень хочешь использовать При-Обработанное но одновременно хочешь что бы звучало как в реальном времени. 0 выключает эту функцию. Маленкие цифры (10-20) дадут хорошый обработаный звук.</system:String>
+    <system:String x:Key="rtFPSLabel">К/С в Реальном Времени</system:String>
+
+    <system:String x:Key="voicesLabel">Голосы:</system:String>
+    <system:String x:Key="disableFXLabel">Выключить Эффекты Soundfont</system:String>
+
+    <!-- Misc Settings -->
+
+    <system:String x:Key="infoCardValues">Информация</system:String>
+
+    <system:String x:Key="runtimeLabel">Время Работы</system:String>
+    <system:String x:Key="setting_time">Время</system:String>
+
+    <system:String x:Key="performanceLabel">Производительность</system:String>
+    <system:String x:Key="setting_FPS">К/С</system:String>
+    <system:String x:Key="setting_estFPS">Округленные К/С</system:String>
+    <system:String x:Key="setting_estFPSHelp">Из за многопоточной обработки, Kiva будет драться за ресурсами других програм и заикаться если не лимитировать К/С. Это опция будет отгадывать К/С если програма бы *не была лимитированнай*, пока она лимитированная.</system:String>
+    <system:String x:Key="setting_rndNotes">Обработанные Ноты</system:String>
+
+    <system:String x:Key="midiLabel">MIDI</system:String>
+    <system:String x:Key="setting_noteCount">Количество Нот</system:String>
+    <system:String x:Key="setting_NPS">Н/С</system:String>
+    <system:String x:Key="setting_NPSMax">Макс Н/С</system:String>
+    <system:String x:Key="setting_BPM">Темп</system:String>
+    <system:String x:Key="setting_polyphony">Полифония</system:String>
+    <system:String x:Key="setting_polyphonyMax">Макс Полифония</system:String>
+
+    <system:String x:Key="advancedLabel">Расширенное</system:String>
+    <system:String x:Key="setting_audioBufferLength">Длина Аудио Буфера</system:String>
+    <system:String x:Key="setting_audioBufferLengthHelp">Длина при-обработанного аудио буфера. Ничего не показывает когда KDMAPI или WinMM использоваются.</system:String>
+
+    <system:String x:Key="setting_bgColor">Цвет Фона</system:String>
+    <system:String x:Key="setting_barColorSecond">Использовать второй цвет полосы</system:String>
+    <system:String x:Key="setting_barColorLabel">Цвет Полосы</system:String>
+    <system:String x:Key="setting_accentCol">Цвет Акцента</system:String>
+    <system:String x:Key="setting_accentColHelp">Меняет внешный взгляд Kiva (Надо рестартнуть)</system:String>
+    <system:String x:Key="setting_textCol">Цвет Текста</system:String>
+    <system:String x:Key="setting_textFont">Текстовой Фонт</system:String>
+    <system:String x:Key="setting_hideInfoCard">Спрятать Информацию</system:String>
+    <system:String x:Key="setting_mainWindowTopmost">Главное Окно Самое Верхнее</system:String>
+    <system:String x:Key="setting_mainWTHelp">Kiva окно всегда будет на самом верху, выше всех окон.</system:String>
+    <system:String x:Key="setting_discordRichPresence">Discord Rich Presence</system:String>
+
+    <!-- Advanced Settings -->
+
+    <system:String x:Key="setting_maxRenderThreads">Макс Потоков для Рендер</system:String>
+    <system:String x:Key="setting_forceSingleThread">Заставить один поток</system:String>
+    <system:String x:Key="setting_forceSTHelp">Заставляет Рендерер использовать только один поток. Аудио от нот всё ровно будет оброботано через разные потки.</system:String>
+
+    <system:String x:Key="experimentalLabel">Экспериментальное</system:String>
+    <system:String x:Key="setting_pseudo3DNotes">Ложные 3D Ноты</system:String>
+    <system:String x:Key="setting_pseudo3DNHelp">Проектирует координаты всех нот на 3D пространство что бы получить еффект похоже на MIDITrail.</system:String>
+    <system:String x:Key="setting_mimicTickRendering">Имитирует Обработку на Основе Тиков</system:String>
+    <system:String x:Key="setting_mimicTRHelp">Работает как Рендерер на Основе Тиков, но только меняет размер всех нот на основе темп.</system:String>
+
+    <system:String x:Key="requireRestartLabel">Надо Рестартнуть Kiva</system:String>
+    <system:String x:Key="requireRestartHelp">Настройки для которых надо рестартнуть Kiva что бы они заработали.</system:String>
+    <system:String x:Key="setting_disableTransparency">Выключить прозрачность окна</system:String>
+    <system:String x:Key="setting_disableTransHelp">Иногда программы как OBS затрудняются записывать окно Kiva. Включать эту функцию фиксирует проблему.</system:String>
+
+    <!-- Other Settings -->
+
+    <system:String x:Key="setting_languageLabel">Язык</system:String>
+
+</ResourceDictionary>

@@ -15,7 +15,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../ButtonTemplates.xaml"/>
-                <ResourceDictionary x:Name="LanguageXAML" Source="pack://siteoforigin:,,,/../Languages/en/window.xaml" />
+                <ResourceDictionary Source="/Languages/en/window.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>

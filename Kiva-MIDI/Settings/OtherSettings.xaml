@@ -7,6 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Languages/en/window.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -15,10 +20,17 @@
         </Grid.ColumnDefinitions>
         <StackPanel>
             <DockPanel>
-                <Label FontSize="14">Language</Label>
+                <Label FontSize="14" Content="{DynamicResource setting_languageLabel}" />
                 <ComboBox x:Name="LangaugeSelect" Margin="10,0,0,0" Width="110" HorizontalAlignment="Left" SelectionChanged="LangaugeSelect_SelectionChanged">
+                    <ComboBoxItem Content="Čeština" />
+                    <ComboBoxItem Content="Deutsch" />
                     <ComboBoxItem Content="English" IsSelected="True"/>
-                    <ComboBoxItem Content="Español"/>
+                    <ComboBoxItem Content="Español" />
+                    <ComboBoxItem Content="日本語" />
+                    <ComboBoxItem Content="한국어" />
+                    <ComboBoxItem Content="Русский" />
+                    <ComboBoxItem Content="Svenska" />
+                    <ComboBoxItem Content="繁體中文" />
                 </ComboBox>
             </DockPanel>
         </StackPanel>

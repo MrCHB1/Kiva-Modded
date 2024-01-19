@@ -47,6 +47,8 @@ namespace Kiva_MIDI
             pseudo3d.IsChecked = settings.General.Pseudo3d;
             mimicTickBased.IsChecked = settings.General.MimicTickBased;
             valuesSet = true;
+
+            if (settings != null) this.Resources.MergedDictionaries[0].Source = settings.General.LanguageURIs[settings.General.SelectedLanguageIndex];
         }
 
         private void disableTransparency_CheckToggled(object sender, RoutedPropertyChangedEventArgs<bool> e)

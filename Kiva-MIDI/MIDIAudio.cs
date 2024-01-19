@@ -193,7 +193,7 @@ namespace Kiva_MIDI
                         { }
                     }
                     prevTime = evTime;*/
-                    var timeDist = (evTime - prevTime);
+                    var timeDist = evTime - prevTime;
                     if (evTime < prevTime) evTime = prevTime;
                     if (timeDist < simulatedLagScale)
                     {

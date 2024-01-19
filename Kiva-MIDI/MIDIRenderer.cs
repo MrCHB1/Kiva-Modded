@@ -374,7 +374,7 @@ namespace Kiva_MIDI
                 DepthBias = 0,
                 DepthBiasClamp = 0,
                 FillMode = FillMode.Solid,
-                IsAntialiasedLineEnabled = false,
+                IsAntialiasedLineEnabled = true,
                 IsDepthClipEnabled = false,
                 IsFrontCounterClockwise = false,
                 IsMultisampleEnabled = true,
@@ -568,10 +568,10 @@ namespace Kiva_MIDI
                                     {
                                         for (noff = 0; noff < notes.Length && notes[noff].end <= time; noff++)
                                         {
-                                            /*if (notes[noff].end > time)
+                                            if (notes[noff].end > time)
                                             {
                                                 break;
-                                            }*/
+                                            }
                                         }
                                         file.FirstRenderNote[k] = noff;
 
@@ -580,10 +580,10 @@ namespace Kiva_MIDI
                                     {
                                         for (; noff < notes.Length && notes[noff].end <= time; noff++)
                                         {
-                                            /*if (notes[noff].end > time)
+                                            if (notes[noff].end > time)
                                             {
                                                 break;
-                                            }*/
+                                            }
                                         }
                                         file.FirstRenderNote[k] = noff;
                                     }

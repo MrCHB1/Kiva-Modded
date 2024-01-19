@@ -6,6 +6,13 @@
              xmlns:local="clr-namespace:Kiva_MIDI"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Languages/en/window.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -13,37 +20,33 @@
         </Grid.ColumnDefinitions>
         <StackPanel Margin="10">
             <DockPanel>
-                <Label FontSize="14">Max Render Threads</Label>
+                <Label FontSize="14" Content="{DynamicResource setting_maxRenderThreads}"/>
                 <local:NumberSelect x:Name="threadCount" Minimum="1" Value="1" Maximum="16" Margin="5,0" Width="70" HorizontalAlignment="Left" ValueChanged="threadCount_ValueChanged"/>
             </DockPanel>
             <DockPanel>
-                <local:BetterCheckbox x:Name="forceSingleThread" Text="Force single thread" CheckToggled="forceSingleThread_CheckToggled"/>
-                <local:InfoIcon Title="Single Threaded" Text="Forces the renderer to use only 1 thread. Note audio will still be rendered in different threads." HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                <local:BetterCheckbox x:Name="forceSingleThread" Text="{DynamicResource setting_forceSingleThread}" CheckToggled="forceSingleThread_CheckToggled"/>
+                <local:InfoIcon Title="{DynamicResource setting_forceSingleThread}" Text="{DynamicResource setting_forceSTHelp}" HorizontalAlignment="Left" Margin="5,0,0,0"/>
             </DockPanel>
             <DockPanel>
-                <Label FontSize="14">
-                    Experimental
-                </Label>
+                <Label FontSize="14" Content="{DynamicResource experimentalLabel}"/>
             </DockPanel>
             <DockPanel>
-                <local:BetterCheckbox x:Name="pseudo3d" Text="Pseudo 3D Notes" CheckToggled="pseudo3d_CheckToggled"/>
-                <local:InfoIcon Title="Pseudo 3D Notes" Text="Projects all of the notes' coordinates to 3D space to achieve a MIDITrail-like effect." HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                <local:BetterCheckbox x:Name="pseudo3d" Text="{DynamicResource setting_pseudo3DNotes}" CheckToggled="pseudo3d_CheckToggled"/>
+                <local:InfoIcon Title="{DynamicResource setting_pseudo3DNotes}" Text="{DynamicResource setting_pseudo3DNHelp}" HorizontalAlignment="Left" Margin="5,0,0,0"/>
             </DockPanel>
             <DockPanel>
-                <local:BetterCheckbox x:Name="mimicTickBased" Text="Mimic Tick-Based Rendering" CheckToggled="mimicTickBased_CheckToggled"/>
-                <local:InfoIcon Title="Mimic Tick-Based Rendering" Text="Acts like a tick-based renderer, though only scaling all notes based on the tempo." HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                <local:BetterCheckbox x:Name="mimicTickBased" Text="{DynamicResource setting_mimicTickRendering}" CheckToggled="mimicTickBased_CheckToggled"/>
+                <local:InfoIcon Title="{DynamicResource setting_mimicTickRendering}" Text="{DynamicResource setting_mimicTRHelp}" HorizontalAlignment="Left" Margin="5,0,0,0"/>
             </DockPanel>
         </StackPanel>
         <StackPanel Margin="10" Grid.Column="1">
             <DockPanel HorizontalAlignment="Left">
-                <Label FontSize="14">
-                    Require Kiva Restart
-                </Label>
-                <local:InfoIcon Title="Require Kiva Restart" Text="Settings that require kiva to be restarted for them to take effect"/>
+                <Label FontSize="14" Content="{DynamicResource requireRestartLabel}" />
+                <local:InfoIcon Title="{DynamicResource requireRestartLabel}" Text="{DynamicResource requireRestartHelp}" />
             </DockPanel>
             <DockPanel HorizontalAlignment="Left">
-                <local:BetterCheckbox x:Name="disableTransparency" CheckToggled="disableTransparency_CheckToggled" Text="Disable window transparency"/>
-                <local:InfoIcon Title="Disable transparency (compatibility)" Text="Sometimes programs like OBS have trouble recording the Kiva window. This setting can help fix that." Margin="5,1,0,0"/>
+                <local:BetterCheckbox x:Name="disableTransparency" CheckToggled="disableTransparency_CheckToggled" Text="{DynamicResource setting_disableTransparency}"/>
+                <local:InfoIcon Title="{DynamicResource setting_disableTransparency}" Text="{DynamicResource setting_disableTransHelp}" Margin="5,1,0,0"/>
             </DockPanel>
         </StackPanel>
     </Grid>

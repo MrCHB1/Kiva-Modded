@@ -1,0 +1,140 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MSDNSample"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="LanguageName">Deutsch</system:String>
+
+    <!-- MAIN WINDOW -->
+
+    <system:String x:Key="info_timeLabel">Zeit:</system:String>
+    <system:String x:Key="info_FPSLabel">FPS:</system:String>
+    <system:String x:Key="info_estFPSLabel">Geschätzte FPS:</system:String>
+    <system:String x:Key="info_renderedNotesLabel">Gerenderte Noten:</system:String>
+    <system:String x:Key="info_nps">NPS:</system:String>
+    <system:String x:Key="info_npsMax">Max. NPS:</system:String>
+    <system:String x:Key="info_polyphony">Polyphonie:</system:String>
+    <system:String x:Key="info_polyphonyMax">Max. Polyphonie:</system:String>
+    <system:String x:Key="info_BPM">BPM:</system:String>
+    <system:String x:Key="info_noteCount">Noten:</system:String>
+    <system:String x:Key="info_notePassed">Abgespielt:</system:String>
+    <system:String x:Key="info_audioBuffer">Audio Puffer:</system:String>
+
+    <system:String x:Key="noteSpeedLabel">Geschwindigkeit:</system:String>
+    <system:String x:Key="noteSpeedHelp">Die relative Zeitskala. Höherer Wert bedeutet schnellere Wiedergabe.</system:String>
+    <system:String x:Key="noteSizeLabel">Größe:</system:String>
+    <system:String x:Key="noteSizeHelp">Die 'Größe' der Noten. Je kleiner der Wert, desto schneller fallen die Noten.</system:String>
+
+    <system:String x:Key="skipAudioEventsLabel">Audio-Events Überspringen</system:String>
+
+    <!-- START OF SETTINGS -->
+
+    <system:String x:Key="visualTab">Visuell</system:String>
+    <system:String x:Key="audioTab">Audio</system:String>
+    <system:String x:Key="miscTab">Sonstiges</system:String>
+    <system:String x:Key="advancedTab">Erweitert</system:String>
+    <system:String x:Key="otherTab">Andere</system:String>
+
+    <!-- Visual Settings -->
+
+    <system:String x:Key="keyboardKeyRangeLabel">Klavier Tastenbereich</system:String>
+    <system:String x:Key="keyboardKeyRangeHelp">Der sichtbare Tastenbereich. Das Klavier behält sein Seitenverhältnis bei veränderung der Größe.</system:String>
+    <system:String x:Key="keyboardRange88">88 Tasten</system:String>
+    <system:String x:Key="keyboardRange128">128 Tasten</system:String>
+    <system:String x:Key="keyboardRange256">256 Tasten</system:String>
+    <system:String x:Key="keyboardRangeMIDI">Tastenbereich des MIDI's</system:String>
+    <system:String x:Key="keyboardRangeMIDIInfo">Von der linkesten Note zu der rechtesten Note in der MIDI-Datei.</system:String>
+    <system:String x:Key="keyboardRangeDynamic">Dynamischer 88-128 Tastenbereich</system:String>
+    <system:String x:Key="keyboardRangeDynamicInfo">Das Klavier wird zwischen 128 und 88 Tasten animieren, abhängig davon, welche Noten auf dem Bildschirm sind.</system:String>
+    <system:String x:Key="keyboardRangeCustom">Benutzerdefiniert</system:String>
+    <system:String x:Key="keyboardRangeCustomTo">Bis</system:String>
+
+    <system:String x:Key="keyboardStyleLabel">Klavier-Stil</system:String>
+    <system:String x:Key="keyboardStyleBig">Großes Klavier</system:String>
+    <system:String x:Key="keyboardStyleSmall">Kleines Klavier</system:String>
+    <system:String x:Key="keyboardStyleNone">Kein Klavier</system:String>
+
+    <system:String x:Key="lockFPS">FPS Sperren</system:String>
+    <system:String x:Key="lockFPSSync">Sync</system:String>
+    <system:String x:Key="lockFPSSyncInfo">Die Sync Funktion zwingt die Bildrate mit der WPF's Render-Bildrate synchron zu sein. Sehr ähnlich zu VSync, sorgt für flüssigere FPS. Bei Einstellung auf "0" FPS ist es unbegrenzt.</system:String>
+
+    <system:String x:Key="palettesLabel">Paletten</system:String>
+    <system:String x:Key="palettesLabelHelp">Funktioniert so wie Zenith-Paletten. Bild muss ein .png sein, entweder 16 oder 32 Pixel breit. Jede Zeile repräsentiert ein MIDI-Kanal, jede Reihe repräsentiert eine MIDI-Spur. Wenn das Bild 32 Pixel breit ist, dann repräsentieren alle Zwei Reihen einen MIDI-Kanal, wodurch die Noten einen Farbverlauf bekommen.</system:String>
+    <system:String x:Key="paletteNoteLabel">Noten Farbpalette</system:String>
+    <system:String x:Key="paletteReload">Neu laden</system:String>
+    <system:String x:Key="paletteRandomize">Zufällige Farbpalette</system:String>
+    <system:String x:Key="paletteShuffle">Farbpalette mischen.</system:String>
+    <system:String x:Key="paletteOpenFolder">Farbpaletten-Ordner öffnen</system:String>
+    <system:String x:Key="paletteSeedLabel">Paletten-Seed</system:String>
+
+    <!-- Audio Settings -->
+
+    <system:String x:Key="renderingEngineLabel">Render-Engine:</system:String>
+    <system:String x:Key="bufferLengthLabel">Pufferlänge (sekunden):</system:String>
+    <system:String x:Key="simulatedRTLagLabel">Simulierter Echtzeit-Lag (ms)</system:String>
+    <system:String x:Key="simulatedRTLagHelp">Wenn du wirklich vor-gerendertes Audio nutzen willst, aber es wie Echtzeit-Audio klingen soll. 0 heißt deaktiviert. Kleine Werte (10-20) kann einenen netten subtilen gerenderten Ton erzeugen.</system:String>
+    <system:String x:Key="rtFPSLabel">Echtzeit-FPS</system:String>
+
+    <system:String x:Key="voicesLabel">Stimmen:</system:String>
+    <system:String x:Key="disableFXLabel">Soundfont-Effekte deaktieren</system:String>
+
+    <!-- Misc Settings -->
+
+    <system:String x:Key="infoCardValues">Infokarte Werte</system:String>
+
+    <system:String x:Key="runtimeLabel">Laufzeit</system:String>
+    <system:String x:Key="setting_time">Zeit</system:String>
+
+    <system:String x:Key="performanceLabel">Leistung</system:String>
+    <system:String x:Key="setting_FPS">FPS</system:String>
+    <system:String x:Key="setting_estFPS">Geschätzte FPS</system:String>
+    <system:String x:Key="setting_estFPSHelp">Wegen Kiva's Multithreading kann Deaktivierung des FPS-Limit's dazu führen, dass Kiva mit allen anderen Programmen um Ressourcen streitet, was zu Stottern führen kann. Diese option erlaubt Kiva, zu schätzen wie hoch die FPS wären *wenn die FPS nicht limitiert wären*.</system:String>
+    <system:String x:Key="setting_rndNotes">Gerenderte Noten</system:String>
+
+    <system:String x:Key="midiLabel">MIDI</system:String>
+    <system:String x:Key="setting_noteCount">Notenanzahl</system:String>
+    <system:String x:Key="setting_NPS">NPS</system:String>
+    <system:String x:Key="setting_NPSMax">Max. NPS</system:String>
+    <system:String x:Key="setting_BPM">BPM</system:String>
+    <system:String x:Key="setting_polyphony">Polyphonie</system:String>
+    <system:String x:Key="setting_polyphonyMax">Max. Polyphonie</system:String>
+
+    <system:String x:Key="advancedLabel">Erweitert</system:String>
+    <system:String x:Key="setting_audioBufferLength">Audio Pufferlänge</system:String>
+    <system:String x:Key="setting_audioBufferLengthHelp">Pufferlänge des vor-gerenderten Audios. Zeigt nichts an wenn KDMAPI oder WinMM ausgewählt sind.</system:String>
+
+    <system:String x:Key="setting_bgColor">Hintergrundfarbe</system:String>
+    <system:String x:Key="setting_barColorSecond">Nutze sekundäre Balkenfarbe</system:String>
+    <system:String x:Key="setting_barColorLabel">Balkenfarbe</system:String>
+    <system:String x:Key="setting_accentCol">Akzentfarbe</system:String>
+    <system:String x:Key="setting_accentColHelp">Ändert die allgemeine Darstellung von Kiva (Benötigt einen Neustart)</system:String>
+    <system:String x:Key="setting_textCol">Textfarbe</system:String>
+    <system:String x:Key="setting_textFont">Schriftart</system:String>
+    <system:String x:Key="setting_hideInfoCard">Infokarte verstecken</system:String>
+    <system:String x:Key="setting_mainWindowTopmost">Oberstes Hauptfenster</system:String>
+    <system:String x:Key="setting_mainWTHelp">Das Kiva Fenster wird immer über anderen Fenstern erscheinen.</system:String>
+    <system:String x:Key="setting_discordRichPresence">Discord Rich Präsenz</system:String>
+
+    <!-- Advanced Settings -->
+
+    <system:String x:Key="setting_maxRenderThreads">Max. Render Threads</system:String>
+    <system:String x:Key="setting_forceSingleThread">Singlethread erzwingen</system:String>
+    <system:String x:Key="setting_forceSTHelp">Zwingt den Render, nur einen Thread zu nutzen. Noten-Audio wird immernoch in mehreren Threads gerendert.</system:String>
+
+    <system:String x:Key="experimentalLabel">Experimental</system:String>
+    <system:String x:Key="setting_pseudo3DNotes">Pseudo-3D Noten</system:String>
+    <system:String x:Key="setting_pseudo3DNHelp">projiziert alle Koordinaten der Noten in einen 3D-Raum, um einen MIDITrail-ähnlichen Effekt zu erhalten.</system:String>
+    <system:String x:Key="setting_mimicTickRendering">Tick-basiertes Rendering Imitieren</system:String>
+    <system:String x:Key="setting_mimicTRHelp">Verhält sich wie ein Tick-basierter Renderer, aber nur durch skalierung der Noten je nach Tempo.</system:String>
+
+    <system:String x:Key="requireRestartLabel">Benötigt neustart</system:String>
+    <system:String x:Key="requireRestartHelp">Einstellungen, die einen Neustart von Kiva benötigen, um zu wirken.</system:String>
+    <system:String x:Key="setting_disableTransparency">Fenster-Transparenz deaktivieren</system:String>
+    <system:String x:Key="setting_disableTransHelp">Teilweise haben Programme wie OBS schwierigkeiten dabei, Kiva aufzuzeichnen. Diese Einstellung kann dabei helfen.</system:String>
+
+    <!-- Other Settings -->
+
+    <system:String x:Key="setting_languageLabel">Sprache</system:String>
+
+</ResourceDictionary>

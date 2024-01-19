@@ -20,6 +20,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="ButtonTemplates.xaml"/>
+                <ResourceDictionary Source="/Languages/en/window.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -53,15 +54,15 @@
                             <Image HorizontalAlignment="Center" RenderOptions.BitmapScalingMode="HighQuality" Height="Auto" Margin="8" Source="Material.WPF/settings.png"/>
                         </Button>
                         <DockPanel Margin="5,0" WindowChrome.IsHitTestVisibleInChrome="True" x:Name="speedPanel">
-                            <Label FontSize="16" VerticalAlignment="Center" Padding="5,0,5,3" Margin="0,0,5,0">Speed:</Label>
-                            <local:ValueSlider ValueChanged="SpeedSlider_ValueChanged" x:Name="speedSlider" Width="220" Minimum="-3" Maximum="3" TrueMin="0.01" TrueMax="100" DecimalPoints="2" VerticalAlignment="Center" WindowChrome.IsHitTestVisibleInChrome="True"/>
+                            <Label FontSize="16" VerticalAlignment="Center" Padding="5,0,5,3" Margin="0,0,5,0" Content="{DynamicResource noteSpeedLabel}"/>
+                            <local:ValueSlider ValueChanged="SpeedSlider_ValueChanged" x:Name="speedSlider" Width="220" Minimum="-3" Maximum="3" TrueMin="0.01" TrueMax="100" DecimalPoints="4" VerticalAlignment="Center" WindowChrome.IsHitTestVisibleInChrome="True"/>
                         </DockPanel>
-                        <local:InfoIcon Title="Speed" Text="The relative time scale. Higher values mean faster playback."/>
+                        <local:InfoIcon Title="{DynamicResource noteSpeedLabel}" Text="{DynamicResource noteSpeedHelp}"/>
                         <DockPanel Margin="5,0" WindowChrome.IsHitTestVisibleInChrome="True" x:Name="sizePanel">
-                            <Label FontSize="16" VerticalAlignment="Center" Padding="5,0,5,3" Margin="0,0,5,0">Size:</Label>
-                            <local:ValueSlider ValueChanged="SizeSlider_ValueChanged" x:Name="sizeSlider" Width="220" Minimum="-4" Maximum="3" TrueMin="0.01" TrueMax="1000" DecimalPoints="2" VerticalAlignment="Center" WindowChrome.IsHitTestVisibleInChrome="True"/>
+                            <Label FontSize="16" VerticalAlignment="Center" Padding="5,0,5,3" Margin="0,0,5,0" Content="{DynamicResource noteSizeLabel}"/>
+                            <local:ValueSlider ValueChanged="SizeSlider_ValueChanged" x:Name="sizeSlider" Width="220" Minimum="-4" Maximum="3" TrueMin="0.01" TrueMax="1000" DecimalPoints="4" VerticalAlignment="Center" WindowChrome.IsHitTestVisibleInChrome="True"/>
                         </DockPanel>
-                        <local:InfoIcon Title="Height Scale" Text="The 'Size' of the notes. The smaller the size, the faster they fall."/>
+                        <local:InfoIcon Title="{DynamicResource noteSizeLabel}" Text="{DynamicResource noteSizeHelp}"/>
                         <Grid>
                             <Label Name="downloadingUpdateLabel" FontSize="16" VerticalAlignment="Center" Margin="10,0,0,0">Downloading update...</Label>
                             <Button Name="updateInstalledButton" PreviewMouseDown="updateInstalledButton_PreviewMouseDown" FontSize="16" VerticalAlignment="Center" Margin="10,0,0,0" WindowChrome.IsHitTestVisibleInChrome="True" Style="{StaticResource TransparentButtonStyle}" Height="25">Update installed! Click here to restart Kiva</Button>
@@ -77,7 +78,7 @@
                     <Grid.Background>
                         <SolidColorBrush Color="Black" Opacity=".5"/>
                     </Grid.Background>
-                    <Label Name="skipEventsCount" Foreground="Red" >Skipping Audio Events</Label>
+                    <Label Name="skipEventsCount" Foreground="Red" Content="{DynamicResource skipAudioEventsLabel}"/>
                 </Grid>
                 <Grid Name="infoCard" HorizontalAlignment="Left" VerticalAlignment="Top" Panel.ZIndex="100">
                     <Grid.Background>
@@ -103,53 +104,53 @@
                                     </Style>
                                 </StackPanel.Resources>
                                 <DockPanel Name="timePanel">
-                                    <TextBlock Margin="0,0,4,0">Time:</TextBlock>
+                                    <TextBlock Margin="0,0,4,0" Text="{DynamicResource info_timeLabel}" />
                                     <TextBlock Name="timeLabel" DockPanel.Dock="Right" HorizontalAlignment="Right"></TextBlock>
                                 </DockPanel>
                                 <DockPanel Name="fpsPanel">
-                                    <TextBlock Margin="0,0,4,0">FPS:</TextBlock>
+                                    <TextBlock Margin="0,0,4,0" Text="{DynamicResource info_FPSLabel}" />
                                     <TextBlock Name="fpsLabel" DockPanel.Dock="Right" HorizontalAlignment="Right"></TextBlock>
                                 </DockPanel>
                                 <DockPanel Name="fakeFpsPanel">
-                                    <TextBlock Margin="0,0,4,0">Estimated FPS:</TextBlock>
+                                    <TextBlock Margin="0,0,4,0" Text="{DynamicResource info_estFPSLabel}" />
                                     <TextBlock Name="fakeFpsLabel" DockPanel.Dock="Right" HorizontalAlignment="Right"></TextBlock>
                                 </DockPanel>
                                 <DockPanel Name="renderedNotesPanel">
-                                    <TextBlock Margin="0,0,4,0">Rendered Notes:</TextBlock>
+                                    <TextBlock Margin="0,0,4,0" Text="{DynamicResource info_renderedNotesLabel}" />
                                     <TextBlock Name="renderedNotesLabel" DockPanel.Dock="Right" HorizontalAlignment="Right"></TextBlock>
                                 </DockPanel>
                                 <DockPanel Name="npsPanel">
-                                    <TextBlock Margin="0,0,4,0">NPS:</TextBlock>
+                                    <TextBlock Margin="0,0,4,0" Text="{DynamicResource info_nps}" />
                                     <TextBlock Name="npsLabelLabel" DockPanel.Dock="Right" HorizontalAlignment="Right"></TextBlock>
                                 </DockPanel>
                                 <DockPanel Name="maxNpsPanel">
-                                    <TextBlock Margin="0,0,4,0">Max NPS:</TextBlock>
+                                    <TextBlock Margin="0,0,4,0" Text="{DynamicResource info_npsMax}" />
                                     <TextBlock Name="maxNpsLabelLabel" DockPanel.Dock="Right" HorizontalAlignment="Right"></TextBlock>
                                 </DockPanel>
                                 <DockPanel Name="polyphonyPanel">
-                                    <TextBlock Margin="0,0,4,0">Polyphony:</TextBlock>
+                                    <TextBlock Margin="0,0,4,0" Text="{DynamicResource info_polyphony}" />
                                     <TextBlock Name="polyphonyLabel" DockPanel.Dock="Right" HorizontalAlignment="Right"></TextBlock>
                                 </DockPanel>
                                 <DockPanel Name="maxPolyphonyPanel">
-                                    <TextBlock Margin="0,0,4,0">Max Polyphony:</TextBlock>
+                                    <TextBlock Margin="0,0,4,0" Text="{DynamicResource info_polyphonyMax}" />
                                     <TextBlock Name="maxPolyphonyLabel" DockPanel.Dock="Right" HorizontalAlignment="Right"></TextBlock>
                                 </DockPanel>
                                 <DockPanel Name="bpmPanel">
-                                    <TextBlock Margin="0,0,4,0">BPM:</TextBlock>
+                                    <TextBlock Margin="0,0,4,0" Text="{DynamicResource info_BPM}" />
                                     <TextBlock Name="bpmLabel" DockPanel.Dock="Right" HorizontalAlignment="Right"></TextBlock>
                                 </DockPanel>
                                 <StackPanel Name="ncPanel">
                                     <DockPanel>
-                                        <TextBlock Margin="0,0,4,0">NC:</TextBlock>
+                                        <TextBlock Margin="0,0,4,0" Text="{DynamicResource info_noteCount}" />
                                         <TextBlock Name="ncLabel" DockPanel.Dock="Right" HorizontalAlignment="Right"></TextBlock>
                                     </DockPanel>
                                     <DockPanel>
-                                        <TextBlock Margin="0,0,4,0">Passed:</TextBlock>
+                                        <TextBlock Margin="0,0,4,0" Text="{DynamicResource info_notePassed}" />
                                         <TextBlock Name="npLabel" DockPanel.Dock="Right" HorizontalAlignment="Right"></TextBlock>
                                     </DockPanel>
                                 </StackPanel>
                                 <DockPanel Name="bufferLenPanel">
-                                    <TextBlock Margin="0,0,4,0">Audio Buffer:</TextBlock>
+                                    <TextBlock Margin="0,0,4,0" Text="{DynamicResource info_audioBuffer}" />
                                     <TextBlock Name="bufferLenLabel" DockPanel.Dock="Right" HorizontalAlignment="Right"></TextBlock>
                                 </DockPanel>
                             </StackPanel>

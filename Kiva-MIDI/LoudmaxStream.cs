@@ -30,6 +30,8 @@ namespace Kiva_MIDI
 
         public double Strength { get => strength; set => strength = value; }
 
+        public double Attack { get => attack; set => attack = value; }
+
         bool reduceHighPitch = false;
 
         double loudnessL = 1;

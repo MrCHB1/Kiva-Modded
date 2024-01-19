@@ -87,6 +87,8 @@ namespace Kiva_MIDI
         public double RenderSimulateLag { get; set; } = 0;
         public int RenderRealtimeFPS { get; set; } = 60;
 
+        public double RenderLimiterAttack { get; set; } = 10;
+
         public bool DiscordRP { get; set; } = false;
 
         public int SelectedMIDIDevice { get; set; } = -1;
@@ -97,7 +99,8 @@ namespace Kiva_MIDI
 
         public bool DisableTransparency { get; set; } = false;
 
-        public string SelectedLanguage { get; set; } = "English";
+        public int SelectedLanguageIndex { get; set; } = 2;
+        public List<Uri> LanguageURIs { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

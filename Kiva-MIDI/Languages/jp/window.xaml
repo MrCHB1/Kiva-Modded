@@ -1,0 +1,145 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MSDNSample"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="LanguageName">Japanese</system:String>
+
+    <!-- MAIN WINDOW -->
+
+    <system:String x:Key="info_timeLabel">時間:</system:String>
+    <system:String x:Key="info_FPSLabel">フレームレート:</system:String>
+    <!-- <system:String x:Key="info_FPSLabel">FPS:</system:String> -->
+    <system:String x:Key="info_estFPSLabel">推定最高フレームレート:</system:String>
+    <!-- <system:String x:Key="info_estFPSLabel">推定最高FPS:</system:String> -->
+    <system:String x:Key="info_renderedNotesLabel">描画ノーツ数:</system:String>
+    <system:String x:Key="info_nps">ノーツ毎秒:</system:String>
+    <system:String x:Key="info_npsMax">最高ノーツ毎秒:</system:String>
+    <system:String x:Key="info_polyphony">打鍵数:</system:String>
+    <system:String x:Key="info_polyphonyMax">最高打鍵数:</system:String>
+    <system:String x:Key="info_BPM">BPM:</system:String>
+    <system:String x:Key="info_noteCount">ノーツ数:</system:String>
+    <system:String x:Key="info_notePassed">通過ノーツ数:</system:String>
+    <system:String x:Key="info_audioBuffer">オーディオバッファ:</system:String>
+
+    <system:String x:Key="noteSpeedLabel">演奏速度:</system:String>
+    <system:String x:Key="noteSpeedHelp">相対的な演奏速度。値が高ければ高いほど速くなる。</system:String>
+    <system:String x:Key="noteSizeLabel">ノーツ幅:</system:String>
+    <system:String x:Key="noteSizeHelp">ノーツの幅。値が小さければ小さいほど速く降下する。</system:String>
+
+    <system:String x:Key="skipAudioEventsLabel">オーディオイベントのスキップ</system:String>
+
+    <!-- START OF SETTINGS -->
+
+    <system:String x:Key="visualTab">映像</system:String>
+    <system:String x:Key="audioTab">音声</system:String>
+    <system:String x:Key="miscTab">その他</system:String>
+    <system:String x:Key="advancedTab">上級者向け</system:String>
+    <system:String x:Key="otherTab">その他</system:String>
+
+    <!-- Visual Settings -->
+
+    <system:String x:Key="keyboardKeyRangeLabel">鍵盤の範囲</system:String>
+    <system:String x:Key="keyboardKeyRangeHelp">見える鍵盤の範囲。鍵盤は縦横比を維持して拡大縮小される。</system:String>
+    <system:String x:Key="keyboardRange88">88鍵</system:String>
+    <system:String x:Key="keyboardRange128">128鍵</system:String>
+    <system:String x:Key="keyboardRange256">256鍵</system:String>
+    <system:String x:Key="keyboardRangeMIDI">MIDIのキー範囲</system:String>
+    <system:String x:Key="keyboardRangeMIDIInfo">MIDIファイルの左端から右端までのキー範囲。</system:String>
+    <system:String x:Key="keyboardRangeDynamic">動的な88～128鍵</system:String>
+    <system:String x:Key="keyboardRangeDynamicInfo">画面にあるノーツに応じて、なめらかに88鍵と128鍵を切り替える。</system:String>
+    <system:String x:Key="keyboardRangeCustom">指定</system:String>
+    <system:String x:Key="keyboardRangeCustomTo">から</system:String>
+
+    <system:String x:Key="keyboardStyleLabel">鍵盤のスタイル</system:String>
+    <system:String x:Key="keyboardStyleBig">大</system:String>
+    <system:String x:Key="keyboardStyleSmall">小</system:String>
+    <system:String x:Key="keyboardStyleNone">なし</system:String>
+
+    <system:String x:Key="lockFPS">フレームレートを制限</system:String>
+    <!-- <system:String x:Key="lockFPS">FPSを制限</system:String> -->
+    <system:String x:Key="lockFPSSync">同期</system:String>
+    <system:String x:Key="lockFPSSyncInfo">フレームレートをWPFのレンダリングフレームレートに同期させる。垂直同期に非常に似ており、よりなめらかに動く。0に設定すると無制限になる。</system:String>
+    <!-- <system:String x:Key="lockFPSSyncInfo">FPSをWPFのレンダリングFPSに同期させる。垂直同期に非常に似ており、よりなめらかに動く。0に設定すると無制限になる。</system:String> -->
+
+    <system:String x:Key="palettesLabel">配色</system:String>
+    <system:String x:Key="palettesLabelHelp">Zenithの配色機能と同じように使える。16または32ピクセル幅のPNG画像でなければならない。各列各行はそれぞれチャンネルとトラックを表す。画像の幅が32ピクセルの場合、2行で1チャンネルを表すことになり、ノーツにグラデーションがかかるようになる。</system:String>
+    <system:String x:Key="paletteNoteLabel">ノート配色</system:String>
+    <system:String x:Key="paletteReload">再読み込み</system:String>
+    <system:String x:Key="paletteRandomize">色の順番をめちゃくちゃにする</system:String>
+    <system:String x:Key="paletteShuffle">配色をシャッフルする</system:String>
+    <system:String x:Key="paletteOpenFolder">パレットフォルダを開く</system:String>
+    <system:String x:Key="paletteSeedLabel">シード値</system:String>
+
+    <!-- Audio Settings -->
+
+    <system:String x:Key="renderingEngineLabel">レンダリングエンジン:</system:String>
+    <system:String x:Key="bufferLengthLabel">バッファ長（秒）:</system:String>
+    <system:String x:Key="simulatedRTLagLabel">模擬リアルタイムラグ（ミリ秒）</system:String>
+    <system:String x:Key="simulatedRTLagHelp">プリレンダーでどうしてもリアルタイムのような音がほしい人向け。0で無効化。小さな値で(10～20)絶妙なリアルタイムサウンドが得られる。</system:String>
+    <system:String x:Key="rtFPSLabel">リアルタイムフレームレート</system:String>
+    <!-- <system:String x:Key="rtFPSLabel">リアルタイムFPS</system:String> -->
+
+    <system:String x:Key="voicesLabel">発音数:</system:String>
+    <system:String x:Key="disableFXLabel">サウンドフォントのエフェクトを無効化</system:String>
+
+    <!-- Misc Settings -->
+
+    <system:String x:Key="infoCardValues">情報表示関連</system:String>
+
+    <system:String x:Key="runtimeLabel">ランタイム</system:String>
+    <system:String x:Key="setting_time">タイム</system:String>
+
+    <system:String x:Key="performanceLabel">パフォーマンス</system:String>
+    <system:String x:Key="setting_FPS">フレームレート</system:String>
+    <system:String x:Key="setting_estFPS">推定最高フレームレート</system:String>
+    <system:String x:Key="setting_estFPSHelp">マルチスレッドにより、フレームレート無制限のときに他のプログラムとのリソースの取り合いが発生し、スタッターの原因になる。このオプションを使うと、フレームレート制限をかけながら最大フレームレートを推定できる。</system:String>
+    <system:String x:Key="setting_rndNotes">描画ノーツ数</system:String>
+
+    <system:String x:Key="midiLabel">MIDI</system:String>
+    <system:String x:Key="setting_noteCount">ノーツ数</system:String>
+    <system:String x:Key="setting_NPS">ノーツ毎秒</system:String>
+    <system:String x:Key="setting_NPSMax">最高ノーツ毎秒</system:String>
+    <system:String x:Key="setting_BPM">BPM</system:String>
+    <system:String x:Key="setting_polyphony">打鍵数</system:String>
+    <system:String x:Key="setting_polyphonyMax">最高打鍵数</system:String>
+
+    <system:String x:Key="advancedLabel">上級者向け</system:String>
+    <system:String x:Key="setting_audioBufferLength">バッファ長</system:String>
+    <system:String x:Key="setting_audioBufferLengthHelp">プリレンダーされたオーディオバッファの長さ。KDMAPIまたはWinMMを使っているときは表示されない。</system:String>
+
+    <system:String x:Key="setting_bgColor">背景色</system:String>
+    <system:String x:Key="setting_barColorSecond">2つ目のバーの色を使う</system:String>
+    <system:String x:Key="setting_barColorLabel">バーの色</system:String>
+    <system:String x:Key="setting_accentCol">アクセントカラー</system:String>
+    <system:String x:Key="setting_accentColHelp">Kivaの全体的な外観を変更する。(要再起動)</system:String>
+    <system:String x:Key="setting_textCol">文字色</system:String>
+    <system:String x:Key="setting_textFont">フォント</system:String>
+    <system:String x:Key="setting_hideInfoCard">情報表示を隠す</system:String>
+    <system:String x:Key="setting_mainWindowTopmost">常に最前面に表示する</system:String>
+    <system:String x:Key="setting_mainWTHelp">Kivaのウィンドウが常に最前面に表示される。</system:String>
+    <system:String x:Key="setting_discordRichPresence">Discord Rich Presenceを使う</system:String>
+
+    <!-- Advanced Settings -->
+
+    <system:String x:Key="setting_maxRenderThreads">レンダリングスレッド数</system:String>
+    <system:String x:Key="setting_forceSingleThread">シングルスレッドを強制</system:String>
+    <system:String x:Key="setting_forceSTHelp">シングルスレッドでのレンダリングを強制する。オーディオは別スレッドで動く。</system:String>
+
+    <system:String x:Key="experimentalLabel">実験的機能</system:String>
+    <system:String x:Key="setting_pseudo3DNotes">疑似3Dノート</system:String>
+    <system:String x:Key="setting_pseudo3DNHelp">すべての音符の座標を3D空間に投影し、MIDITrailのような効果を得る。</system:String>
+    <system:String x:Key="setting_mimicTickRendering">疑似 Tick-Based レンダリング</system:String>
+    <system:String x:Key="setting_mimicTRHelp">Tick-based レンダラーのように動くが、実際はBPMに合わせてスケーリングしているだけである。</system:String>
+
+    <system:String x:Key="requireRestartLabel">要再起動項目</system:String>
+    <system:String x:Key="requireRestartHelp">反映させるために再起動が必要な設定。</system:String>
+    <system:String x:Key="setting_disableTransparency">ウィンドウの透過を無効化する</system:String>
+    <system:String x:Key="setting_disableTransHelp">たまにOBSのように、Kivaの録画がうまくいかないことがある。この問題を解決するためのオプションである。</system:String>
+
+    <!-- Other Settings -->
+
+    <system:String x:Key="setting_languageLabel">言語</system:String>
+
+</ResourceDictionary>

@@ -1,0 +1,140 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MSDNSample"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="LanguageName">Svenska</system:String>
+
+    <!-- MAIN WINDOW -->
+
+    <system:String x:Key="info_timeLabel">Tid:</system:String>
+    <system:String x:Key="info_FPSLabel">FPS:</system:String>
+    <system:String x:Key="info_estFPSLabel">Uppskattad FPS:</system:String>
+    <system:String x:Key="info_renderedNotesLabel">Renderade Noter:</system:String>
+    <system:String x:Key="info_nps">NPS:</system:String>
+    <system:String x:Key="info_npsMax">Max NPS:</system:String>
+    <system:String x:Key="info_polyphony">Polyfoni:</system:String>
+    <system:String x:Key="info_polyphonyMax">Max Polyfoni:</system:String>
+    <system:String x:Key="info_BPM">BPM:</system:String>
+    <system:String x:Key="info_noteCount">Noter:</system:String>
+    <system:String x:Key="info_notePassed">Passerade:</system:String>
+    <system:String x:Key="info_audioBuffer">Ljudbuffert:</system:String>
+
+    <system:String x:Key="noteSpeedLabel">Hastighet:</system:String>
+    <system:String x:Key="noteSpeedHelp">Den relativa tidsskalan. Högre värden betyder snabbare uppspelning.</system:String>
+    <system:String x:Key="noteSizeLabel">Storlek:</system:String>
+    <system:String x:Key="noteSizeHelp">'Storleken' av noterna. Ju mindre storlek, desto snabbare faller de.</system:String>
+
+    <system:String x:Key="skipAudioEventsLabel">Hoppar över ljudhändelser</system:String>
+
+    <!-- START OF SETTINGS -->
+
+    <system:String x:Key="visualTab">Visuell</system:String>
+    <system:String x:Key="audioTab">Ljud</system:String>
+    <system:String x:Key="miscTab">Diverse</system:String>
+    <system:String x:Key="advancedTab">Advancerat</system:String>
+    <system:String x:Key="otherTab">Annat</system:String>
+
+    <!-- Visual Settings -->
+
+    <system:String x:Key="keyboardKeyRangeLabel">Pianots Tangentområde</system:String>
+    <system:String x:Key="keyboardKeyRangeHelp">Det synliga tangentområdet. Pianot behåller sitt bildförhållande när storleken ändras.</system:String>
+    <system:String x:Key="keyboardRange88">88 Tangenter</system:String>
+    <system:String x:Key="keyboardRange128">128 Tangenter</system:String>
+    <system:String x:Key="keyboardRange256">256 Tangenter</system:String>
+    <system:String x:Key="keyboardRangeMIDI">MIDI:s Tangentområde</system:String>
+    <system:String x:Key="keyboardRangeMIDIInfo">Från den lägsta till den högsta tonen i MIDI filen.</system:String>
+    <system:String x:Key="keyboardRangeDynamic">Dynamisk 88-128 Område</system:String>
+    <system:String x:Key="keyboardRangeDynamicInfo">Pianot kommer animera mellan 128 och 88 tangenter, beroende på vilka noter som finns på skärmen.</system:String>
+    <system:String x:Key="keyboardRangeCustom">Anpassad</system:String>
+    <system:String x:Key="keyboardRangeCustomTo">Till</system:String>
+
+    <system:String x:Key="keyboardStyleLabel">Tangentbordsstil</system:String>
+    <system:String x:Key="keyboardStyleBig">Stort Tangentbord</system:String>
+    <system:String x:Key="keyboardStyleSmall">Litet Tangentbord</system:String>
+    <system:String x:Key="keyboardStyleNone">Inget Tangentbord</system:String>
+
+    <system:String x:Key="lockFPS">Lås FPS</system:String>
+    <system:String x:Key="lockFPSSync">Synka</system:String>
+    <system:String x:Key="lockFPSSyncInfo">Om du sätter på "Synka" kommer din FPS att synkas till WPF's renderingsfrekvens. Väldigt likt VSync, ger dig mjukare FPS och om du sätter FPS till 0 blir den upplåst.</system:String>
+
+    <system:String x:Key="palettesLabel">Paletter</system:String>
+    <system:String x:Key="palettesLabelHelp">Fungerar på samma sätt som Zenith's paletter. Bilden måste vara en png, antingen 16 eller 32 pixlar bred. Varje kolumn representerar en MIDI kanal, varje rad repsesenterar ett MIDI spår. Om bilden är 32 pixlar bred, då kommer varje två rader representera en MIDI kanal och noterna får gradienter.</system:String>
+    <system:String x:Key="paletteNoteLabel">Färgpalett för noter</system:String>
+    <system:String x:Key="paletteReload">Ladda om</system:String>
+    <system:String x:Key="paletteRandomize">Slumpa färgordning</system:String>
+    <system:String x:Key="paletteShuffle">Blanda palettens färger.</system:String>
+    <system:String x:Key="paletteOpenFolder">Öppna palettmappen.</system:String>
+    <system:String x:Key="paletteSeedLabel">Palettsseed</system:String>
+
+    <!-- Audio Settings -->
+
+    <system:String x:Key="renderingEngineLabel">Renderingsmotor:</system:String>
+    <system:String x:Key="bufferLengthLabel">Buffertlängd (sekunder):</system:String>
+    <system:String x:Key="simulatedRTLagLabel">Simulerad realtidsfördröjning (ms)</system:String>
+    <system:String x:Key="simulatedRTLagHelp">Om du verkligen vill använda förrenderad men vill att det också ska låta i realtid. 0 betyder inaktiverad. Små värden som (10-20) kan göra ett bra subtilt renderat ljud.</system:String>
+    <system:String x:Key="rtFPSLabel">Realtid FPS</system:String>
+
+    <system:String x:Key="voicesLabel">Röster:</system:String>
+    <system:String x:Key="disableFXLabel">Inaktivera Soundfont Effekter</system:String>
+
+    <!-- Misc Settings -->
+
+    <system:String x:Key="infoCardValues">Infokortvärden</system:String>
+
+    <system:String x:Key="runtimeLabel">Körtid</system:String>
+    <system:String x:Key="setting_time">Tid</system:String>
+
+    <system:String x:Key="performanceLabel">Prestanda</system:String>
+    <system:String x:Key="setting_FPS">FPS</system:String>
+    <system:String x:Key="setting_estFPS">Uppskattad FPS</system:String>
+    <system:String x:Key="setting_estFPSHelp">På grund av Kiva's multitrådning, att låsa upp FPS kan göra så att Kiva slåss för resurser med andra program vilket orsakar stamning. Detta alternativ tillåter Kiva att uppskatta vad för FPS du hade haft *om det var upplåst* medans den är låst.</system:String>
+    <system:String x:Key="setting_rndNotes">Renderade Notes</system:String>
+
+    <system:String x:Key="midiLabel">MIDI</system:String>
+    <system:String x:Key="setting_noteCount">Antal Noter</system:String>
+    <system:String x:Key="setting_NPS">NPS</system:String>
+    <system:String x:Key="setting_NPSMax">Max NPS</system:String>
+    <system:String x:Key="setting_BPM">BPM</system:String>
+    <system:String x:Key="setting_polyphony">Polyfoni</system:String>
+    <system:String x:Key="setting_polyphonyMax">Max Polyfoni</system:String>
+
+    <system:String x:Key="advancedLabel">Advancerat</system:String>
+    <system:String x:Key="setting_audioBufferLength">Ljudbuffertlängd</system:String>
+    <system:String x:Key="setting_audioBufferLengthHelp">Längden av den förrenderade ljudbufferten. Visar ingenting om KDMAPI eller WinMM är vald.</system:String>
+
+    <system:String x:Key="setting_bgColor">Bakgrundsfärg</system:String>
+    <system:String x:Key="setting_barColorSecond">Använd sekundär stapelfärg</system:String>
+    <system:String x:Key="setting_barColorLabel">Stapelfärg</system:String>
+    <system:String x:Key="setting_accentCol">Accentfärg</system:String>
+    <system:String x:Key="setting_accentColHelp">Ändrar det övergripande utseendet av Kiva (kräver omstart)</system:String>
+    <system:String x:Key="setting_textCol">Textfärg</system:String>
+    <system:String x:Key="setting_textFont">Teckensnitt</system:String>
+    <system:String x:Key="setting_hideInfoCard">Dölj infokort</system:String>
+    <system:String x:Key="setting_mainWindowTopmost">Huvudfönstret Överst</system:String>
+    <system:String x:Key="setting_mainWTHelp">Kiva fönstret kommer alltid visas över andra fönster.</system:String>
+    <system:String x:Key="setting_discordRichPresence">Discord Rich Presence</system:String>
+
+    <!-- Advanced Settings -->
+
+    <system:String x:Key="setting_maxRenderThreads">Max Renderingstrådar</system:String>
+    <system:String x:Key="setting_forceSingleThread">Tvinga singulär tråd</system:String>
+    <system:String x:Key="setting_forceSTHelp">Tvingar renderingsmotorn att använda bara en tråd. Notljud kommer fortfarande renderas i olika trådar.</system:String>
+
+    <system:String x:Key="experimentalLabel">Experimentell</system:String>
+    <system:String x:Key="setting_pseudo3DNotes">Pseudo 3D Noter</system:String>
+    <system:String x:Key="setting_pseudo3DNHelp">Projicerar alla av noternas koordinater till 3D utrymme för att uppnå en effekt likt MIDITrail.</system:String>
+    <system:String x:Key="setting_mimicTickRendering">Härma Tickbaserad Rendering</system:String>
+    <system:String x:Key="setting_mimicTRHelp">Beter sig som en tickbaserad renderare, men alla noter skalas bara efter tempot.</system:String>
+
+    <system:String x:Key="requireRestartLabel">Kräver omstart av Kiva</system:String>
+    <system:String x:Key="requireRestartHelp">Inställningar som kräver att Kiva startas om för att fungera.</system:String>
+    <system:String x:Key="setting_disableTransparency">Stäng av fönstertransparens</system:String>
+    <system:String x:Key="setting_disableTransHelp">Ibland har program som OBS problem med att filma Kiva fönstret. Denna inställning hjälper fixa det.</system:String>
+
+    <!-- Other Settings -->
+
+    <system:String x:Key="setting_languageLabel">Språk</system:String>
+
+</ResourceDictionary>

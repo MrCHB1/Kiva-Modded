@@ -71,6 +71,7 @@ namespace Kiva_MIDI
             randomPaletteSeed.Value = settings.General.PaletteSeed;
 
             SetPalettes();
+            if (settings != null) this.Resources.MergedDictionaries[2].Source = settings.General.LanguageURIs[settings.General.SelectedLanguageIndex];
         }
 
         void SetPalettes()

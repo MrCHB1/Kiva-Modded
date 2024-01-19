@@ -1,0 +1,140 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MSDNSample"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="LanguageName">한국어</system:String>
+
+    <!-- MAIN WINDOW -->
+
+    <system:String x:Key="info_timeLabel">시간:</system:String>
+    <system:String x:Key="info_FPSLabel">FPS:</system:String>
+    <system:String x:Key="info_estFPSLabel">예상 FPS:</system:String>
+    <system:String x:Key="info_renderedNotesLabel">렌더링된 노트:</system:String>
+    <system:String x:Key="info_nps">NPS:</system:String>
+    <system:String x:Key="info_npsMax">최대 NPS:</system:String>
+    <system:String x:Key="info_polyphony">폴리포니:</system:String>
+    <system:String x:Key="info_polyphonyMax">최대 폴리포니:</system:String>
+    <system:String x:Key="info_BPM">분당 비트 수:</system:String>
+    <system:String x:Key="info_noteCount">참고 사항:</system:String>
+    <system:String x:Key="info_notePassed">통과:</system:String>
+    <system:String x:Key="info_audioBuffer">오디오 버퍼:</system:String>
+
+    <system:String x:Key="noteSpeedLabel">속도:</system:String>
+    <system:String x:Key="noteSpeedHelp">상대적인 시간 척도입니다. 값이 클수록 재생 속도가 빨라집니다.</system:String>
+    <system:String x:Key="noteSizeLabel">크기:</system:String>
+    <system:String x:Key="noteSizeHelp">노트의 '크기'입니다. 크기가 작을수록 더 빨리 떨어집니다.</system:String>
+
+    <system:String x:Key="skipAudioEventsLabel">오디오 이벤트 건너뛰기</system:String>
+
+    <!-- START OF SETTINGS -->
+
+    <system:String x:Key="visualTab">비주얼</system:String>
+    <system:String x:Key="audioTab">오디오</system:String>
+    <system:String x:Key="miscTab">기타</system:String>
+    <system:String x:Key="advancedTab">고급</system:String>
+    <system:String x:Key="otherTab">기타</system:String>
+    
+    <!-- Visual Settings -->
+
+    <system:String x:Key="keyboardKeyRangeLabel">키보드 키 범위</system:String>
+    <system:String x:Key="keyboardKeyRangeHelp">보이는 키 범위입니다. 크기를 변경할 때 키보드의 가로 세로 비율이 유지됩니다.</system:String>
+    <system:String x:Key="keyboardRange88">88 키</system:String>
+    <system:String x:Key="keyboardRange128">128 키</system:String>
+    <system:String x:Key="keyboardRange256">256 키</system:String>
+    <system:String x:Key="keyboardRangeMIDI">MIDI의 건반 범위</system:String>
+    <system:String x:Key="keyboardRangeMIDIInfo">미디 파일에서 가장 왼쪽에서 가장 오른쪽 음표 순서로 진행합니다.</system:String>
+    <system:String x:Key="keyboardRangeDynamic">동적 88-128 범위</system:String>
+    <system:String x:Key="keyboardRangeDynamicInfo">키보드에는 화면에 표시되는 노트에 따라 128~88개의 키가 애니메이션으로 표시됩니다.</system:String>
+    <system:String x:Key="keyboardRangeCustom">사용자 지정</system:String>
+    <system:String x:Key="keyboardRangeCustomTo">까지</system:String>
+
+    <system:String x:Key="keyboardStyleLabel">키보드 스타일</system:String>
+    <system:String x:Key="keyboardStyleBig">큰 키보드</system:String>
+    <system:String x:Key="keyboardStyleSmall">작은 키보드</system:String>
+    <system:String x:Key="keyboardStyleNone">키보드 없음</system:String>
+
+    <system:String x:Key="lockFPS">FPS 잠금</system:String>
+    <system:String x:Key="lockFPSSync">동기화</system:String>
+    <system:String x:Key="lockFPSSyncInfo">동기화 옵션은 프레임 속도를 WPF의 렌더링 프레임 속도에 강제로 동기화합니다. VSync와 매우 유사하며 더 부드러운 FPS를 만듭니다. 또한 FPS를 0으로 설정하면 잠금이 해제됩니다.</system:String>
+
+    <system:String x:Key="palettesLabel">팔레트</system:String>
+    <system:String x:Key="palettesLabelHelp">천정 팔레트와 같은 방식으로 작업합니다. 이미지는 16픽셀 또는 32픽셀 너비의 PNG 파일이어야 합니다. 모든 열은 미디 채널을, 모든 행은 트랙을 나타냅니다. 이미지 너비가 32픽셀인 경우, 두 행마다 하나의 채널을 나타내어 음표에 그라데이션이 생깁니다.</system:String>
+    <system:String x:Key="paletteNoteLabel">노트 색상 팔레트</system:String>
+    <system:String x:Key="paletteReload">재장전</system:String>
+    <system:String x:Key="paletteRandomize">색상 순서 무작위 지정</system:String>
+    <system:String x:Key="paletteShuffle">팔레트 색상을 섞습니다.</system:String>
+    <system:String x:Key="paletteOpenFolder">팔레트 폴더 열기</system:String>
+    <system:String x:Key="paletteSeedLabel">팔레트 시드</system:String>
+    
+    <!-- Audio Settings -->
+
+    <system:String x:Key="renderingEngineLabel">렌더링 엔진:</system:String>
+    <system:String x:Key="bufferLengthLabel">버퍼 길이(초):</system:String>
+    <system:String x:Key="simulatedRTLagLabel">시뮬레이션된 실시간 지연(ms)</system:String>
+    <system:String x:Key="simulatedRTLagHelp">미리 렌더링된 사운드를 사용하되 실시간 사운드도 원하는 경우. 0은 비활성화를 의미합니다. 값이 작으면(10-20) 미묘한 사운드가 렌더링될 수 있습니다.</system:String>
+    <system:String x:Key="rtFPSLabel">실시간 FPS</system:String>
+
+    <system:String x:Key="voicesLabel">음성:</system:String>
+    <system:String x:Key="disableFXLabel">사운드폰트 효과 비활성화</system:String>
+    
+    <!-- Misc Settings -->
+
+    <system:String x:Key="infoCardValues">정보 카드 값</system:String>
+
+    <system:String x:Key="runtimeLabel">런타임</system:String>
+    <system:String x:Key="setting_time">시간</system:String>
+
+    <system:String x:Key="performanceLabel">성능</system:String>
+    <system:String x:Key="setting_FPS">FPS</system:String>
+    <system:String x:Key="setting_estFPS">예상 FPS</system:String>
+    <system:String x:Key="setting_estFPSHelp">Kiva의 멀티 스레딩으로 인해 FPS를 잠금 해제하면 다른 모든 프로그램과 리소스를 놓고 경쟁하여 끊김 현상이 발생할 수 있습니다. 이 옵션을 사용하면 Kiva가 잠겨 있는 동안 *잠금을 해제했을 때* 어떤 FPS가 나올지 예측할 수 있습니다.</system:String>
+    <system:String x:Key="setting_rndNotes">렌더링된 노트</system:String>
+
+    <system:String x:Key="midiLabel">MIDI</system:String>
+    <system:String x:Key="setting_noteCount">노트 수</system:String>
+    <system:String x:Key="setting_NPS">NPS</system:String>
+    <system:String x:Key="setting_NPSMax">최대 NPS</system:String>
+    <system:String x:Key="setting_BPM">BPM</system:String>
+    <system:String x:Key="setting_polyphony">폴리포니</system:String>
+    <system:String x:Key="setting_polyphonyMax">최대 폴리포니</system:String>
+
+    <system:String x:Key="advancedLabel">고급</system:String>
+    <system:String x:Key="setting_audioBufferLength">오디오 버퍼 길이</system:String>
+    <system:String x:Key="setting_audioBufferLengthHelp">프리 렌더링 오디오 버퍼의 길이입니다. KDMAPI 또는 WinMM이 선택된 경우 아무 것도 표시되지 않습니다.</system:String>
+
+    <system:String x:Key="setting_bgColor">배경색</system:String>
+    <system:String x:Key="setting_barColorSecond">보조 막대 색상 사용</system:String>
+    <system:String x:Key="setting_barColorLabel">막대 색상</system:String>
+    <system:String x:Key="setting_accentCol">강조 색상</system:String>
+    <system:String x:Key="setting_accentColHelp">키바의 전체적인 외관을 변경합니다(재시작 필요).</system:String>
+    <system:String x:Key="setting_textCol">텍스트 색상</system:String>
+    <system:String x:Key="setting_textFont">텍스트 글꼴</system:String>
+    <system:String x:Key="setting_hideInfoCard">정보 카드 숨기기</system:String>
+    <system:String x:Key="setting_mainWindowTopmost">최우선순위 창</system:String>
+    <system:String x:Key="setting_mainWTHelp">Kiva 창은 항상 다른 창 위에 표시됩니다.</system:String>
+    <system:String x:Key="setting_discordRichPresence">불협화음 풍부한 존재감</system:String>
+
+    <!-- Advanced Settings -->
+
+    <system:String x:Key="setting_maxRenderThreads">최대 렌더 스레드</system:String>
+    <system:String x:Key="setting_forceSingleThread">단일 스레드 강제 적용</system:String>
+    <system:String x:Key="setting_forceSTHelp">렌더러가 하나의 스레드만 사용하도록 강제합니다. 오디오는 여전히 다른 스레드에서 렌더링됩니다.</system:String>
+
+    <system:String x:Key="experimentalLabel">실험적</system:String>
+    <system:String x:Key="setting_pseudo3DNotes">가짜 3D 노트</system:String>
+    <system:String x:Key="setting_pseudo3DNHelp">모든 노트의 좌표를 3D 공간에 투영하여 미디트레일과 같은 효과를 얻을 수 있습니다.</system:String>
+    <system:String x:Key="setting_mimicTickRendering">틱 기반 렌더링 모방</system:String>
+    <system:String x:Key="setting_mimicTRHelp">틱 기반 렌더러처럼 작동하지만 템포에 따라 모든 음표의 스케일만 조정합니다.</system:String>
+
+    <system:String x:Key="requireRestartLabel">Kiva재시작 필요</system:String>
+    <system:String x:Key="requireRestartHelp">설정이 적용되려면 Kiva를 다시 시작해야 합니다.</system:String>
+    <system:String x:Key="setting_disableTransparency">창 투명도 비활성화</system:String>
+    <system:String x:Key="setting_disableTransHelp">가끔 OBS와 같은 프로그램에서 Kiva 창을 녹화하는 데 문제가 있는 경우가 있습니다. 이 설정은 이 문제를 해결하는 데 도움이 될 수 있습니다.</system:String>
+
+    <!-- Other Settings -->
+
+    <system:String x:Key="setting_languageLabel">언어</system:String>
+    
+</ResourceDictionary>

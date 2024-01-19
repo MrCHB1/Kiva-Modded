@@ -66,6 +66,8 @@ namespace Kiva_MIDI
             bufferLengthLabel.IsChecked = (cp & CardParams.AudioBuffer) > 0;
             maxNpsLabel.IsChecked = (cp & CardParams.MaxNPS) > 0;
             maxPolyphonyLabel.IsChecked = (cp & CardParams.MaxPolyphony) > 0;
+
+            if (settings != null) this.Resources.MergedDictionaries[0].Source = settings.General.LanguageURIs[settings.General.SelectedLanguageIndex];
         }
 
         private void BackgroundColor_ValueChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)

@@ -8,6 +8,8 @@ using KivaShared;
 using System.IO;
 using System.IO.Compression;
 using System.Diagnostics;
+using MessageBox = KivaShared.MessageBox;
+using System.Windows;
 
 namespace Kiva_MIDI
 {
@@ -52,6 +54,21 @@ namespace Kiva_MIDI
                     TryDownloadUpdatePackage(s.VersionName);
                 }
             }
+
+            List<Uri> LanguagePaths = new List<Uri>();
+            var languagePacks = Directory.GetDirectories("Languages");
+            foreach (var language in languagePacks)
+            {
+                var resources = Directory.GetFiles(language).Where((l) => l.EndsWith(".xaml")).ToList();
+                if (resources.Count == 0) continue;
+
+                foreach (var r in resources)
+                {
+                    ResourceDictionary file = new ResourceDictionary();
+                    LanguagePaths.Add(new Uri(System.IO.Path.GetFullPath(r), UriKind.RelativeOrAbsolute));
+                }
+            }
+            s.General.LanguageURIs = LanguagePaths;
 
             var window = new MainWindow(s);
             if (args.Length != 0)
